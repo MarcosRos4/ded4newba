@@ -1,12 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using ded4newba.src.Proficiencies;
 
-namespace ded4newba
+namespace ded4newba.Src.Backgrounds
 {
     public class Background
     {
-        
+        public List<string> Skills { get; set; }
+
+        public List<string> Languages { get; set; }
+
+        public List<Proficiency> Proficiencies {get; set;}
     }
 }

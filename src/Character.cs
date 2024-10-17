@@ -1,5 +1,7 @@
+using ded4newba.src.Proficiencies;
 using ded4newba.Src.DnDClasses;
 using ded4newba.Src.Races;
+using ded4newba.Src.Backgrounds;
 
 namespace ded4newba.Src
 {
@@ -9,13 +11,13 @@ namespace ded4newba.Src
 
         public int Level { get; set; }
 
-        public int Proficiency { get; set; }
+        public int ProficiencyBonus { get; set; }
 
         public Race Race { get; set; }
 
         public DndClass DndClass { get; set; }
     
-        // public Background background { get; set; }
+        public Background Background { get; set; }
 
         public int TotalLifePoints;
 
@@ -31,11 +33,14 @@ namespace ded4newba.Src
         // Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma
 
         public List<string> SavingThrows {get;set;}
+        
+        public List<Proficiency> Proficiencies {get; set;}
 
-        public Character(DndClass dndClass, Race race, Dictionary<string, int> abilityscores, string name)
+        public Character(DndClass dndClass, Race race, Background background, Dictionary<string, int> abilityscores, string name)
         {
             Race = race;
             DndClass = dndClass;
+            Background = background;
             AbilityScores = abilityscores;
             Name = name;
             TotalLifePoints = DndClass.LifeDice + DndClass.ClassLevel * 2;
@@ -45,15 +50,15 @@ namespace ded4newba.Src
             Movement = Race.Movement;
             CurrentLifePoints = TotalLifePoints;
             SavingThrows = DndClass.SavingThrows;
-            SetProfiency();
+            SetProfiencyBonus();
         }
 
         public int GetAtributeBonus(string attribute){
             return (int) Math.Floor((decimal) (AbilityScores[attribute] - 10) / 2);
         }
 
-        public void SetProfiency(){
-            Proficiency = (Level / 4) switch
+        public void SetProfiencyBonus(){
+            ProficiencyBonus = (Level / 4) switch
             {
                 <= 1 => 2, // lvl 1-4 => +2
                 <= 2 => 3, // lvl 5-8 => +3
@@ -67,7 +72,7 @@ namespace ded4newba.Src
             Random roll = new();
             int result = roll.Next(1,21);
             if (SavingThrows.Contains(score))
-                Console.WriteLine($"{result} + {GetAtributeBonus(score)} + {Proficiency} = {result + GetAtributeBonus(score) + Proficiency}");
+                Console.WriteLine($"{result} + {GetAtributeBonus(score)} + {ProficiencyBonus} = {result + GetAtributeBonus(score) + ProficiencyBonus}");
             else
                 Console.WriteLine($"{result} + {GetAtributeBonus(score)} = {result + GetAtributeBonus(score)}");
         }
@@ -75,7 +80,7 @@ namespace ded4newba.Src
         public void RollAtack(string score){
             Random roll = new();
             int result = roll.Next(1,21);
-            Console.WriteLine($"{result} + {GetAtributeBonus(score)} + {Proficiency} = {result + GetAtributeBonus(score) + Proficiency}");
+            Console.WriteLine($"{result} + {GetAtributeBonus(score)} + {ProficiencyBonus} = {result + GetAtributeBonus(score) + ProficiencyBonus}");
         }
     }
 }
