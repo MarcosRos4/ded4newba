@@ -1,4 +1,4 @@
-using ded4newba.Src.Habilities;
+using ded4newba.Src.PassiveHabilities;
 using ded4newba.Src.Backgrounds;
 
 namespace ded4newba.src.Backgrounds
@@ -6,7 +6,7 @@ namespace ded4newba.src.Backgrounds
     public class Acolyte : Background
     {
 
-        readonly Hability proficiency = new(
+        readonly PassiveHability proficiency = new(
             "Shelter of the Faithful",// name
             // description
             "As an acolyte, you command the respect of those who share your faith," +
@@ -22,7 +22,7 @@ namespace ded4newba.src.Backgrounds
         public Acolyte(){
             Skills = ["Insight", "Religion"];
             Languages = ["Celestial", "Infernal"]; // implementar: o player pode escolher quaisquer duas linguagens
-            Habilities.Add(proficiency.Name, proficiency.Description);
+            PassiveHabilities.Add(proficiency.Name, proficiency.Description);
             
         }
     }

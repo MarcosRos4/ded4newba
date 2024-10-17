@@ -22,12 +22,9 @@ Character shmeb = new(
     },
     "Shmeb");
 
-Console.WriteLine(
-shmeb.TotalLifePoints);
-Console.WriteLine(
-shmeb.Level);
-Console.WriteLine(
-shmeb.Name);
+Console.WriteLine($"{shmeb.TotalLifePoints} pontos de vida");
+Console.WriteLine($"Nível: {shmeb.Level}");
+Console.WriteLine($"Meu nome é: {shmeb.Name}");
 
 shmeb.RollAtack("Strength");
 shmeb.RollSavingThrow("Charisma");

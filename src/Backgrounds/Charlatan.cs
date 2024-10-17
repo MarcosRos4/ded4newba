@@ -1,11 +1,11 @@
-using ded4newba.Src.Habilities;
+using ded4newba.Src.PassiveHabilities;
 using ded4newba.Src.Backgrounds;
 
 namespace ded4newba.src.Backgrounds
 {
     public class Charlatan : Background
     {
-        readonly private Hability disguisekit = new(
+        readonly private PassiveHability disguisekit = new(
             "Disguise Kit",
             "This pouch of cosmetics, hair dye, and small props lets you create disguises"+
             " that change your physical appearance. Proficiency with this kit lets you ad"+
@@ -13,7 +13,7 @@ namespace ded4newba.src.Backgrounds
             "isguise."
         );
 
-        readonly private Hability forgerykit = new(
+        readonly private PassiveHability forgerykit = new(
             "Forgery Kit",
             "This small box contains a variety of papers and parchments, pens and inks, "+
             "seals and sealing wax, gold and silver leaf, and other supplies necessary t"+
@@ -22,7 +22,7 @@ namespace ded4newba.src.Backgrounds
             "reate a physical forgery of a document."
         );
 
-        readonly private Hability falseidentity = new(
+        readonly private PassiveHability falseidentity = new(
             "False Identity",
             "You have created a second identity that includes documentation, establishe"+
             "d acquaintances, and disguises that allow you to assume this persona. Addi"+
@@ -34,9 +34,9 @@ namespace ded4newba.src.Backgrounds
         public Charlatan(){
             Skills = ["Prestidigitation", "Deception", "Disguise", "Forgery"];
             Languages = [];
-            Habilities.Add(disguisekit.Name, disguisekit.Description);
-            Habilities.Add(forgerykit.Name, forgerykit.Description);
-            Habilities.Add(falseidentity.Name, falseidentity.Description);
+            PassiveHabilities.Add(disguisekit.Name, disguisekit.Description);
+            PassiveHabilities.Add(forgerykit.Name, forgerykit.Description);
+            PassiveHabilities.Add(falseidentity.Name, falseidentity.Description);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace ded4newba.src.DnDClasses
     {
         public Bard(){
             LifeDice = 8;
-            ClassLevel = 1;
+            ClassLevel = 10;
             SavingThrows = ["Wisdom", "Charisma"];
         }
     }

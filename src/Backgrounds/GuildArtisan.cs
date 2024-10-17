@@ -1,11 +1,11 @@
-using ded4newba.Src.Habilities;
+using ded4newba.Src.PassiveHabilities;
 using ded4newba.Src.Backgrounds;
 
 namespace ded4newba.src.Backgrounds
 {
     public class GuildArtisan : Background
     {
-        readonly private Hability artisanstools = new(
+        readonly private PassiveHability artisanstools = new(
             "Artisan's Tools", // fazer feature de escolher qual tipo de ferramenta de artesão
             "These special tools include the items needed to pursue a craft or trade."+
             " Proficiency with a set of artisan's tools lets you add your proficiency"+
@@ -13,7 +13,7 @@ namespace ded4newba.src.Backgrounds
             " type of artisan's tools requires a separate proficiency."
         );
 
-        readonly private Hability guildassociate = new(
+        readonly private PassiveHability guildassociate = new(
             "Guild Associate",
             "As a captive and respected member of the guild, you can count on certain "+
             "benefits guaranteed by the society. Your comrades, guild members, will pr"+
@@ -34,7 +34,7 @@ namespace ded4newba.src.Backgrounds
             Skills = ["Insight", "Persuasion", "Artisan's Tools"];
             Languages = ["Dwarven"];
 
-            Habilities.Add(guildassociate.Name, guildassociate.Description);
+            PassiveHabilities.Add(guildassociate.Name, guildassociate.Description);
         }
     }
 }

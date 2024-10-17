@@ -1,12 +1,12 @@
 
-using ded4newba.Src.Habilities;
+using ded4newba.Src.PassiveHabilities;
 using ded4newba.Src.Backgrounds;
 
 namespace ded4newba.src.Backgrounds
 {
     public class Soldier : Background
     {
-        readonly Hability militaryrank = new(
+        readonly PassiveHability militaryrank = new(
             "Military Rank",
             "You have a military rank from your career as a soldier. Soldiers loyal t"+
             "o your former military organization still recognize your authority and i"+
@@ -20,7 +20,7 @@ namespace ded4newba.src.Backgrounds
         public Soldier(){
             Skills = ["Athletics", "Intimidation", "Control Land Vehicle"];
             Languages = [];
-            Habilities.Add(militaryrank.Name, militaryrank.Description);
+            PassiveHabilities.Add(militaryrank.Name, militaryrank.Description);
         }
     }
 }

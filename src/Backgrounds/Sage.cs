@@ -1,11 +1,11 @@
-using ded4newba.Src.Habilities;
+using ded4newba.Src.PassiveHabilities;
 using ded4newba.Src.Backgrounds;
 
 namespace ded4newba.src.Backgrounds
 {
     public class Sage : Background
     {
-        readonly private Hability researcher = new(
+        readonly PassiveHability researcher = new(
             "Researcher",
             "When you attempt to learn or recall a piece of lore, if you do not know that information,"+
             " you often know where and from whom you can obtain it. Usually, this information comes fr"+
@@ -18,7 +18,7 @@ namespace ded4newba.src.Backgrounds
         public Sage(){
             Skills = ["Arcana", "History"];
             Languages = ["Dwarven", "Goblin"];
-            Habilities.Add(researcher.Name, researcher.Description);
+            PassiveHabilities.Add(researcher.Name, researcher.Description);
         }
     }
 }

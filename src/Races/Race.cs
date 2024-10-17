@@ -1,13 +1,30 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using ded4newba.src.Habilities;
+using ded4newba.Src.PassiveHabilities;
 
 namespace ded4newba.Src.Races
 {
     public class Race
     {
-        public int Movement {get;set;}
-        public Dictionary<string, int> BonusAtributes {get; set;}
+        public Dictionary<string, int> BonusAtributes = [];
+        public int Movement {get; set;} = 30;
+        
+        public bool DarkVision { get; set;} =  false;
+
+        public List<string> Languages = [];
+
+        public List<PassiveHability> PassiveHabilities = [];
+
+        public List<Advantage> Advantages = [];
+
+        public List<DisAdvantage> DisAdvantages = [];
+
+        public List<Resistance> Resistances = [];
+
+        public List<Imunity> Imunities = [];
+
+        public List<string> Skills = [];
+
+        //public List<Spell> Spells = [];
+
     }
 }

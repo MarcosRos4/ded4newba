@@ -1,17 +1,17 @@
-using ded4newba.Src.Habilities;
+using ded4newba.Src.PassiveHabilities;
 using ded4newba.Src.Backgrounds;
 
 namespace ded4newba.src.Backgrounds
 {
     public class Sailor : Background
     {
-        readonly private Hability navigatorstools = new(
+        readonly private PassiveHability navigatorstools = new(
             "Navigator's Tools",
             "If you have proficiency with a tool, add your Proficiency Bonus to any abili"+
             "ty check you make that uses the tool. If you have proficiency in a skill tha"+
             "t's used with that check, you have Advantage on the check too."
         );
-        readonly private Hability shipticket = new(
+        readonly private PassiveHability shipticket = new(
             "Ship Ticket",
             "Whenever you need, you can secure free passage on a ship for yourself and y"+
             "our adventuring companions. You must travel on a ship you have worked on or"+
@@ -24,8 +24,8 @@ namespace ded4newba.src.Backgrounds
         public Sailor(){
             Skills = ["Athletics", "Perception", "Navigator's Tools", "Control Aquatic Vehicle"];
             Languages = [];
-            Habilities.Add(navigatorstools.Name, navigatorstools.Description);
-            Habilities.Add(shipticket.Name, shipticket.Description);
+            PassiveHabilities.Add(navigatorstools.Name, navigatorstools.Description);
+            PassiveHabilities.Add(shipticket.Name, shipticket.Description);
         }
     }
 }

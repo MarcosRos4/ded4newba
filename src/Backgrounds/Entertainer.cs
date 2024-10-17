@@ -1,11 +1,11 @@
-using ded4newba.Src.Habilities;
+using ded4newba.Src.PassiveHabilities;
 using ded4newba.Src.Backgrounds;
 
 namespace ded4newba.src.Backgrounds
 {
     public class Entertainer : Background
     {
-        readonly private Hability disguisekit = new(
+        readonly private PassiveHability disguisekit = new(
             "Disguise Kit",
             "This pouch of cosmetics, hair dye, and small props lets you create disguises"+
             " that change your physical appearance. Proficiency with this kit lets you ad"+
@@ -13,14 +13,14 @@ namespace ded4newba.src.Backgrounds
             "isguise."
         );
 
-        readonly private Hability musicalinstrument = new(
+        readonly private PassiveHability musicalinstrument = new(
             "Musical Instrument",
             "If you have proficiency with a given musical instrument, you can add your pr"+
             "oficiency bonus to any ability checks you make to play music with the instru"+
             "ment. A bard can use bagpipes as a spellcasting focus."
         );
 
-        readonly private Hability bypopulardemand = new(
+        readonly private PassiveHability bypopulardemand = new(
             "By Popular Demand",
             "You always find a place to perform, usually in taverns or inns, but possibl"+
             "y in circuses, theaters, or even noble courts. In such places, you receive "+
@@ -33,9 +33,9 @@ namespace ded4newba.src.Backgrounds
         public Entertainer(){
             Skills = ["Acrobatics", "Performance", "Disguise"];
             Languages = [];
-            Habilities.Add(disguisekit.Name, disguisekit.Description);
-            Habilities.Add(musicalinstrument.Name, musicalinstrument.Description);
-            Habilities.Add(bypopulardemand.Name, bypopulardemand.Description);
+            PassiveHabilities.Add(disguisekit.Name, disguisekit.Description);
+            PassiveHabilities.Add(musicalinstrument.Name, musicalinstrument.Description);
+            PassiveHabilities.Add(bypopulardemand.Name, bypopulardemand.Description);
         }
 
     }

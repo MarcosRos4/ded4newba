@@ -12,11 +12,11 @@ namespace ded4newba.Src
 
         public int ProficiencyBonus { get; set; }
 
-        public Race Race { get; set; }
+        public Race Race = new();
 
-        public DndClass DndClass { get; set; }
+        public DndClass DndClass = new();
     
-        public Background Background { get; set; }
+        public Background Background = new();
 
         public int TotalLifePoints;
 
@@ -28,14 +28,14 @@ namespace ded4newba.Src
 
         public int Movement { get; set; }
 
-        public Dictionary<string, int> AbilityScores { get; set; }
+        public Dictionary<string, int> AbilityScores = [];
         // Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma
 
-        public List<string> SavingThrows {get;set;}
+        public List<string> SavingThrows = [];
 
-        public List<string> Skills {get; set;}
+        public List<string> Skills = [];
         
-        public Dictionary<string, string> Habilities {get; set;}
+        public Dictionary<string, string> PassiveHabilities = [];
 
         public Character(DndClass dndClass, Race race, Background background, Dictionary<string, int> abilityscores, string name)
         {
@@ -46,8 +46,8 @@ namespace ded4newba.Src
             Name = name;
             TotalLifePoints =
                 DndClass.LifeDice +
-                AbilityScores["Constitution"] +
-                (int)Math.Ceiling((decimal) DndClass.LifeDice /2) * DndClass.ClassLevel;
+                GetAtributeBonus("Constitution") +
+                (DndClass.LifeDice / 2 + 1 + GetAtributeBonus("Constitution")) * (DndClass.ClassLevel - 1) ;
             Level = DndClass.ClassLevel;
             ArmorClass = 10 + AbilityScores["Dexterity"];
             Iniciative = GetAtributeBonus("Dexterity");
@@ -56,18 +56,18 @@ namespace ded4newba.Src
             SavingThrows = DndClass.SavingThrows;
             SetProfiencyBonus();
             SetSkills();
-            SetHabilities();
+            SetPassiveHabilities();
         }
 
-        public void SetHabilities(){
-            foreach (var hability in Background.Habilities)
+        public void SetPassiveHabilities(){
+            foreach (var hability in Background.PassiveHabilities)
             {
-                Habilities.Add(hability.Key, hability.Value);
+                PassiveHabilities.Add(hability.Key, hability.Value);
             }
 
-            // foreach (var hability in DndClass.Habilities)
+            // foreach (var hability in DndClass.PassiveHabilities)
             // {
-            //     Habilities.Add(hability.Key, hability.Value);
+            //     PassiveHabilities.Add(hability.Key, hability.Value);
             // }            
         }
 
@@ -77,10 +77,10 @@ namespace ded4newba.Src
                 Skills.Add(skill);
             }
 
-            foreach (string skill in DndClass.Skills)
-            {
-                Skills.Add(skill);
-            }
+            // foreach (string skill in DndClass.Skills)
+            // {
+            //     Skills.Add(skill);
+            // }
         }
 
         public int GetAtributeBonus(string attribute){
@@ -103,15 +103,15 @@ namespace ded4newba.Src
             Random roll = new();
             int result = roll.Next(1,21);
             if (SavingThrows.Contains(score))
-                Console.WriteLine($"{result} + {GetAtributeBonus(score)} + {ProficiencyBonus} = {result + GetAtributeBonus(score) + ProficiencyBonus}");
+                Console.WriteLine($"AtackRoll: {result} + {GetAtributeBonus(score)} + {ProficiencyBonus} = {result + GetAtributeBonus(score) + ProficiencyBonus}");
             else
-                Console.WriteLine($"{result} + {GetAtributeBonus(score)} = {result + GetAtributeBonus(score)}");
+                Console.WriteLine($"AtackRoll: {result} + {GetAtributeBonus(score)} = {result + GetAtributeBonus(score)}");
         }
 
         public void RollAtack(string score){
             Random roll = new();
             int result = roll.Next(1,21);
-            Console.WriteLine($"{result} + {GetAtributeBonus(score)} + {ProficiencyBonus} = {result + GetAtributeBonus(score) + ProficiencyBonus}");
+            Console.WriteLine($"{score}Roll: {result} + {GetAtributeBonus(score)} + {ProficiencyBonus} = {result + GetAtributeBonus(score) + ProficiencyBonus}");
         }
     }
 }

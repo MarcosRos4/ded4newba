@@ -1,13 +1,12 @@
-using ded4newba.src.Habilities;
+using ded4newba.Src.PassiveHabilities;
 
 namespace ded4newba.Src.Backgrounds
 {
     public class Background
     {
-        public List<string> Skills { get; set; }
+        public List<string> Skills = [];
 
-        public List<string> Languages { get; set; }
-
-        public Dictionary<string, string> Habilities {get; set;}
+        public List<string> Languages = [];
+        public Dictionary<string, string> PassiveHabilities = [];
     }
 }
