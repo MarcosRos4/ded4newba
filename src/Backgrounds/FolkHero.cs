@@ -1,19 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ded4newba.src.Proficiencies;
+using ded4newba.Src.Habilities;
 using ded4newba.Src.Backgrounds;
 
 namespace ded4newba.src.Backgrounds
 {
     public class FolkHero : Background
     {
-        readonly Proficiency vehicle = new(
+        readonly Hability vehicle = new(
             "Land Vehicle",
             "You add tour proficiency bonus to any checks to control any land vehicle."
         );
-        readonly Proficiency artisanstools = new(
+        readonly Hability artisanstools = new(
             "Artisan's Tools", // fazer feature de escolher qual tipo de ferramenta de artesão
             "These special tools include the items needed to pursue a craft or trade."+
             " Proficiency with a set of artisan's tools lets you add your proficiency"+
@@ -21,7 +17,7 @@ namespace ded4newba.src.Backgrounds
             " type of artisan's tools requires a separate proficiency."
         );
 
-        readonly Proficiency rustichospitality = new(
+        readonly Hability rustichospitality = new(
             "Rustic Hospitality",
             "Since you come from the ranks of the common folk, you fit in among them w"+
             "ith ease. You can find a place to hide, rest, or recuperate among other c"+
@@ -31,11 +27,11 @@ namespace ded4newba.src.Backgrounds
         );
         
         public FolkHero(){
-            Skills = ["Animal Handling", "Survival"];
+            Skills = ["Animal Handling", "Survival", "Controll Land Vehicle", "Artisan's Tools"];
             Languages = [];
-            Proficiencies.Add(vehicle);
-            Proficiencies.Add(artisanstools);
-            Proficiencies.Add(rustichospitality);
+
+            Habilities.Add(rustichospitality.Name, rustichospitality.Description);
+            
         }
     }
 }

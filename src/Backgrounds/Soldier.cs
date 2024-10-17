@@ -1,20 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ded4newba.src.Proficiencies;
+
+using ded4newba.Src.Habilities;
 using ded4newba.Src.Backgrounds;
 
 namespace ded4newba.src.Backgrounds
 {
     public class Soldier : Background
     {
-        readonly Proficiency vehicle = new(
-            "Vehicle",
-            "You add tour proficiency bonus to any checks to control any land vehicle."
-        );
-
-        readonly Proficiency militaryrank = new(
+        readonly Hability militaryrank = new(
             "Military Rank",
             "You have a military rank from your career as a soldier. Soldiers loyal t"+
             "o your former military organization still recognize your authority and i"+
@@ -26,10 +18,9 @@ namespace ded4newba.src.Backgrounds
         );
 
         public Soldier(){
-            Skills = ["Athletics", "Intimidation"];
+            Skills = ["Athletics", "Intimidation", "Control Land Vehicle"];
             Languages = [];
-            Proficiencies.Add(vehicle);
-            Proficiencies.Add(militaryrank);
+            Habilities.Add(militaryrank.Name, militaryrank.Description);
         }
     }
 }

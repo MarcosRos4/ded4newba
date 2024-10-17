@@ -12,5 +12,10 @@ namespace ded4newba.Src.DnDClasses
         public int ClassLevel { get; set; }
 
         public  List<string> SavingThrows {get; set;}
+
+        public  List<string> Skills {get; set;}
+
+        public Dictionary<string, string> Habilities {get;set;}
+
     }
 }

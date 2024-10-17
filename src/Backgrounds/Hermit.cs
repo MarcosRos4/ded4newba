@@ -1,11 +1,11 @@
-using ded4newba.src.Proficiencies;
+using ded4newba.Src.Habilities;
 using ded4newba.Src.Backgrounds;
 
 namespace ded4newba.src.Backgrounds
 {
     public class Hermit : Background
     {
-        readonly private Proficiency herbalismkit = new(
+        readonly private Hability herbalismkit = new(
             "Herbalism Kit",
             "This kit contains a variety of instruments such as clippers, mortar and pestle,"+
             " and pouches and vials used by herbalists to create remedies and potions. Profi"+
@@ -13,7 +13,7 @@ namespace ded4newba.src.Backgrounds
             "you make to identify or apply herbs. Also, proficiency with this kit is require"+
             "d to create antitoxin and any potion of healing."
         );
-        readonly private Proficiency discovery = new(
+        readonly private Hability discovery = new(
             "Discobery",
             "The quiet seclusion of your extended hermitage gave you access to unique and po"+
             "werful discoveries. The exact nature of these revelations depends on the nature"+
@@ -28,10 +28,10 @@ namespace ded4newba.src.Backgrounds
         
         
         public Hermit(){
-            Skills = ["Medicine", "Religion"];
+            Skills = ["Medicine", "Religion", "Nature"];
             Languages = ["Infernal"];
-            Proficiencies.Add(discovery);
-            Proficiencies.Add(herbalismkit);
+            Habilities.Add(discovery.Name, discovery.Description);
+            Habilities.Add(herbalismkit.Name, herbalismkit.Description);
         }
     }
 }

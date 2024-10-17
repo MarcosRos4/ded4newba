@@ -1,11 +1,11 @@
-using ded4newba.src.Proficiencies;
+using ded4newba.Src.Habilities;
 using ded4newba.Src.Backgrounds;
 
 namespace ded4newba.src.Backgrounds
 {
     public class Charlatan : Background
     {
-        readonly private Proficiency disguisekit = new(
+        readonly private Hability disguisekit = new(
             "Disguise Kit",
             "This pouch of cosmetics, hair dye, and small props lets you create disguises"+
             " that change your physical appearance. Proficiency with this kit lets you ad"+
@@ -13,7 +13,7 @@ namespace ded4newba.src.Backgrounds
             "isguise."
         );
 
-        readonly private Proficiency forgerykit = new(
+        readonly private Hability forgerykit = new(
             "Forgery Kit",
             "This small box contains a variety of papers and parchments, pens and inks, "+
             "seals and sealing wax, gold and silver leaf, and other supplies necessary t"+
@@ -22,7 +22,7 @@ namespace ded4newba.src.Backgrounds
             "reate a physical forgery of a document."
         );
 
-        readonly private Proficiency falseidentity = new(
+        readonly private Hability falseidentity = new(
             "False Identity",
             "You have created a second identity that includes documentation, establishe"+
             "d acquaintances, and disguises that allow you to assume this persona. Addi"+
@@ -32,11 +32,11 @@ namespace ded4newba.src.Backgrounds
         );
         
         public Charlatan(){
-            Skills = ["Prestidigitation", "Deception"];
+            Skills = ["Prestidigitation", "Deception", "Disguise", "Forgery"];
             Languages = [];
-            Proficiencies.Add(disguisekit);
-            Proficiencies.Add(forgerykit);
-            Proficiencies.Add(falseidentity);
+            Habilities.Add(disguisekit.Name, disguisekit.Description);
+            Habilities.Add(forgerykit.Name, forgerykit.Description);
+            Habilities.Add(falseidentity.Name, falseidentity.Description);
         }
     }
 }

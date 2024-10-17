@@ -1,4 +1,4 @@
-using ded4newba.src.Proficiencies;
+using ded4newba.src.Habilities;
 
 namespace ded4newba.Src.Backgrounds
 {
@@ -8,6 +8,6 @@ namespace ded4newba.Src.Backgrounds
 
         public List<string> Languages { get; set; }
 
-        public List<Proficiency> Proficiencies {get; set;}
+        public Dictionary<string, string> Habilities {get; set;}
     }
 }

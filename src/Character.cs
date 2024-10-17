@@ -1,4 +1,3 @@
-using ded4newba.src.Proficiencies;
 using ded4newba.Src.DnDClasses;
 using ded4newba.Src.Races;
 using ded4newba.Src.Backgrounds;
@@ -33,8 +32,10 @@ namespace ded4newba.Src
         // Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma
 
         public List<string> SavingThrows {get;set;}
+
+        public List<string> Skills {get; set;}
         
-        public List<Proficiency> Proficiencies {get; set;}
+        public Dictionary<string, string> Habilities {get; set;}
 
         public Character(DndClass dndClass, Race race, Background background, Dictionary<string, int> abilityscores, string name)
         {
@@ -43,7 +44,10 @@ namespace ded4newba.Src
             Background = background;
             AbilityScores = abilityscores;
             Name = name;
-            TotalLifePoints = DndClass.LifeDice + DndClass.ClassLevel * 2;
+            TotalLifePoints =
+                DndClass.LifeDice +
+                AbilityScores["Constitution"] +
+                (int)Math.Ceiling((decimal) DndClass.LifeDice /2) * DndClass.ClassLevel;
             Level = DndClass.ClassLevel;
             ArmorClass = 10 + AbilityScores["Dexterity"];
             Iniciative = GetAtributeBonus("Dexterity");
@@ -51,6 +55,32 @@ namespace ded4newba.Src
             CurrentLifePoints = TotalLifePoints;
             SavingThrows = DndClass.SavingThrows;
             SetProfiencyBonus();
+            SetSkills();
+            SetHabilities();
+        }
+
+        public void SetHabilities(){
+            foreach (var hability in Background.Habilities)
+            {
+                Habilities.Add(hability.Key, hability.Value);
+            }
+
+            // foreach (var hability in DndClass.Habilities)
+            // {
+            //     Habilities.Add(hability.Key, hability.Value);
+            // }            
+        }
+
+        public void SetSkills(){
+            foreach (string skill in Background.Skills)
+            {
+                Skills.Add(skill);
+            }
+
+            foreach (string skill in DndClass.Skills)
+            {
+                Skills.Add(skill);
+            }
         }
 
         public int GetAtributeBonus(string attribute){
@@ -69,6 +99,7 @@ namespace ded4newba.Src
         }
 
         public void RollSavingThrow(string score){
+            
             Random roll = new();
             int result = roll.Next(1,21);
             if (SavingThrows.Contains(score))
