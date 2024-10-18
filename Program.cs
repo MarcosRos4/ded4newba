@@ -1,12 +1,12 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using ded4newba.src.Backgrounds;
 using ded4newba.src.DnDClasses;
-using ded4newba.Src;
+using ded4newba.Src.Character;
 using ded4newba.Src.Races;
 
 Bard bard = new();
 Race gnome = new();
-Sage sage = new();
+Sage sage = new("Celestial", "Infernal");
 Character shmeb = new(
     bard,
     gnome,

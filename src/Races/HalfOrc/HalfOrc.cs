@@ -29,7 +29,7 @@ namespace ded4newba.src.Races.HalfOrc
             Languages.Add("Common");
             Languages.Add("Orc");
 
-            Skills.Add("Intimidation");
+            KnownSkills.Add("Intimidation");
         }
     }
 }

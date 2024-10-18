@@ -2,7 +2,7 @@ using ded4newba.Src.DnDClasses;
 using ded4newba.Src.Races;
 using ded4newba.Src.Backgrounds;
 
-namespace ded4newba.Src
+namespace ded4newba.Src.Character
 {
     public class Character
     {
@@ -33,9 +33,13 @@ namespace ded4newba.Src
 
         public List<string> SavingThrows = [];
 
-        public List<string> Skills = [];
+        public List<string> KnownSkills = [];
+
+        public Dictionary<string, string> AllSkills = [];
         
         public Dictionary<string, string> PassiveHabilities = [];
+
+        readonly Random Roll = new();
 
         public Character(DndClass dndClass, Race race, Background background, Dictionary<string, int> abilityscores, string name)
         {
@@ -55,8 +59,29 @@ namespace ded4newba.Src
             CurrentLifePoints = TotalLifePoints;
             SavingThrows = DndClass.SavingThrows;
             SetProfiencyBonus();
-            SetSkills();
+            SetKnownSkills();
+            SetAllSkills();
             SetPassiveHabilities();
+        }
+
+        public void SetAllSkills(){
+            
+            try
+            {   // lê o arquivo
+                var file = File.ReadAllLines("AllSkills.txt");
+                foreach (var line in file)
+                { // para cada linha divide a linha em duas partes, a chave e o valor
+                    var split = line.Split('=');
+                    if (split.Length == 2 )
+                    {   // adiciona a chave e o valor ao dicionario
+                        AllSkills.Add(split[0], split[1]);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao ler o arquivo: {ex.Message}");
+            }
         }
 
         public void SetPassiveHabilities(){
@@ -71,16 +96,16 @@ namespace ded4newba.Src
             // }            
         }
 
-        public void SetSkills(){
-            foreach (string skill in Background.Skills)
+        public void SetKnownSkills(){
+            foreach (var skill in Background.KnownSkills)
             {
-                Skills.Add(skill);
+                KnownSkills.Add(skill);
             }
 
-            // foreach (string skill in DndClass.Skills)
-            // {
-            //     Skills.Add(skill);
-            // }
+            foreach (var skill in DndClass.KnownSkills)
+            {
+                KnownSkills.Add(skill);
+            }
         }
 
         public int GetAtributeBonus(string attribute){
@@ -100,8 +125,8 @@ namespace ded4newba.Src
 
         public void RollSavingThrow(string score){
             
-            Random roll = new();
-            int result = roll.Next(1,21);
+            int result = Roll.Next(1,21);
+            
             if (SavingThrows.Contains(score))
                 Console.WriteLine($"AtackRoll: {result} + {GetAtributeBonus(score)} + {ProficiencyBonus} = {result + GetAtributeBonus(score) + ProficiencyBonus}");
             else
@@ -109,9 +134,24 @@ namespace ded4newba.Src
         }
 
         public void RollAtack(string score){
-            Random roll = new();
-            int result = roll.Next(1,21);
+            
+            int result = Roll.Next(1,21);
+            
             Console.WriteLine($"{score}Roll: {result} + {GetAtributeBonus(score)} + {ProficiencyBonus} = {result + GetAtributeBonus(score) + ProficiencyBonus}");
+        }
+    
+        public int RollSkillCheck(string skill){
+            int result = Roll.Next(1,21);
+            // checa qual é o atributo que a skill usa
+            AllSkills.TryGetValue(skill, out string atribute);
+            if (KnownSkills.Contains(skill)) // checa se a skill é conhecida
+            {
+                // se sim retorna a rolagem + bonus + proeficiencia
+                return result + ProficiencyBonus + GetAtributeBonus(atribute);    
+            }
+                // se não retorna rolagem +  bonus
+            return result + GetAtributeBonus(atribute);
+            
         }
     }
 }

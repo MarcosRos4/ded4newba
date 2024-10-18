@@ -31,8 +31,11 @@ namespace ded4newba.src.Backgrounds
         );
 
         public Entertainer(){
-            Skills = ["Acrobatics", "Performance", "Disguise"];
-            Languages = [];
+            
+            KnownSkills.Add("Acrobatics");
+            KnownSkills.Add("Performance");
+            KnownSkills.Add("Disguise");
+            
             PassiveHabilities.Add(disguisekit.Name, disguisekit.Description);
             PassiveHabilities.Add(musicalinstrument.Name, musicalinstrument.Description);
             PassiveHabilities.Add(bypopulardemand.Name, bypopulardemand.Description);

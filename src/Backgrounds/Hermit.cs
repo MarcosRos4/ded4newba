@@ -27,9 +27,14 @@ namespace ded4newba.src.Backgrounds
         );
         
         
-        public Hermit(){
-            Skills = ["Medicine", "Religion", "Nature"];
-            Languages = ["Infernal"];
+        public Hermit(string language){
+            
+            KnownSkills.Add("Medicine");
+            KnownSkills.Add("Religion");
+            KnownSkills.Add("Nature");
+
+            Languages.Add(language);
+            
             PassiveHabilities.Add(discovery.Name, discovery.Description);
             PassiveHabilities.Add(herbalismkit.Name, herbalismkit.Description);
         }

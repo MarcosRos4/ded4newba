@@ -53,8 +53,9 @@ namespace ded4newba.src.Races.Dwarf
 
             Resistances.Add(RESdwarvenresilience);
 
-            Skills.Add("Artisan's Tools");
-            Skills.Add("Stonework History");
+            KnownSkills.Add("Artisan's Tools", "Dexterity");
+            KnownSkills.Add("Stonework History", "");
+            // TODO: adicionar a super-proeficiencia
         }
     }
 }

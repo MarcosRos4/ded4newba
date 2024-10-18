@@ -19,9 +19,14 @@ namespace ded4newba.src.Backgrounds
             " if you remain on good terms with it, or a temple where you have found a new home. While near your temple,"+
             " you can call upon the priests for assistance, provided the assistance you ask for is not hazardous"+
             " and you remain in good standing with your temple.");
-        public Acolyte(){
-            Skills = ["Insight", "Religion"];
-            Languages = ["Celestial", "Infernal"]; // implementar: o player pode escolher quaisquer duas linguagens
+        public Acolyte(string language1, string language2){
+            
+            KnownSkills.Add("Insight");
+            KnownSkills.Add("Religion");
+            
+            Languages.Add(language1);
+            Languages.Add(language2);
+            
             PassiveHabilities.Add(proficiency.Name, proficiency.Description);
             
         }

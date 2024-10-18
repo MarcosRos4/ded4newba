@@ -22,7 +22,7 @@ namespace ded4newba.Src.Races
 
         public List<Imunity> Imunities = [];
 
-        public List<string> Skills = [];
+        public Dictionary<string, string> KnownSkills = [];
 
         //public List<Spell> Spells = [];
 

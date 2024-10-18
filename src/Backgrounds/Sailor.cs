@@ -22,8 +22,12 @@ namespace ded4newba.src.Backgrounds
             "our companions are expected to assist the crew during the voyage."
         );
         public Sailor(){
-            Skills = ["Athletics", "Perception", "Navigator's Tools", "Control Aquatic Vehicle"];
-            Languages = [];
+            
+            KnownSkills.Add("Athletics");
+            KnownSkills.Add("Perception");
+            KnownSkills.Add("Navigator's Tools");
+            KnownSkills.Add("Control Aquatic Vehicle");
+
             PassiveHabilities.Add(navigatorstools.Name, navigatorstools.Description);
             PassiveHabilities.Add(shipticket.Name, shipticket.Description);
         }

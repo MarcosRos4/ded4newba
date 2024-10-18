@@ -15,9 +15,14 @@ namespace ded4newba.src.Backgrounds
             "can require an adventure or even a whole campaign."
         );
 
-        public Sage(){
-            Skills = ["Arcana", "History"];
-            Languages = ["Dwarven", "Goblin"];
+        public Sage(string language1, string language2){
+            
+            KnownSkills.Add("Arcana");
+            KnownSkills.Add("History");
+            
+            Languages.Add(language1);
+            Languages.Add(language2);
+
             PassiveHabilities.Add(researcher.Name, researcher.Description);
         }
     }

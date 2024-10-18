@@ -21,9 +21,14 @@ namespace ded4newba.src.Backgrounds
             "its, water, and the like."
         );
 
-        public Outlander(){
-            Skills = ["Survival", "Athletics", "Performance"];
-            Languages = ["Abissal"];
+        public Outlander(string language){
+            
+            KnownSkills.Add("Survival");
+            KnownSkills.Add("Athletics");
+            KnownSkills.Add("Performance");
+            
+            Languages.Add(language);
+            
             PassiveHabilities.Add(musicalinstrument.Name, musicalinstrument.Description);
             PassiveHabilities.Add(wanderer.Name, musicalinstrument.Description);
         }

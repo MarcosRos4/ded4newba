@@ -52,7 +52,7 @@ namespace ded4newba.src.Races.Elf
 
             Advantages.Add(ADVfeyancestry);
 
-            Skills.Add("Perception");
+            KnownSkills.Add("Perception");
         
             Imunities.Add(IMUsleep);
         }        

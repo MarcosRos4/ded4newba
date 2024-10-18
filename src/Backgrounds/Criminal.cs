@@ -18,8 +18,12 @@ namespace ded4newba.src.Backgrounds
             " you know the local messengers, corrupt caravan masters, and seedy sailors who can deliver messages for you."
         );
         public Criminal(){
-            Skills = ["Deception", "Stealth", "Disarm Trap", "Open Lock"];
-            Languages = [];
+            
+            KnownSkills.Add("Deception");
+            KnownSkills.Add("Stealth");
+            KnownSkills.Add("Disarm Trap");
+            KnownSkills.Add("Open Lock");
+            
             PassiveHabilities.Add(thievestools.Name, thievestools.Description);
             PassiveHabilities.Add(criminalcontact.Name, criminalcontact.Description);
         }

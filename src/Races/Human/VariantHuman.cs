@@ -14,7 +14,7 @@ namespace ded4newba.src.Races.Human
             Languages.Add("Common");
             Languages.Add("Dwarvish"); // TODO escolher mais uma linguagem qualquer
 
-            Skills.Add("Percepction"); // TODO escolher uma pericia para ser proeficiente
+            KnownSkills.Add("Percepction"); // TODO escolher uma pericia para ser proeficiente
 
             // TODO adicionar um talento para ter proeficiencia
         }

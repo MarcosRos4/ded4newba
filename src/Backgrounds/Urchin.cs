@@ -27,8 +27,12 @@ namespace ded4newba.src.Backgrounds
         );
         
         public Urchin(){
-            Skills = ["Stealth", "Prestidigitation", "Disguise", "Disarm Traps", "Open Locks"];
-            Languages = [];
+            KnownSkills.Add("Stealth");
+            KnownSkills.Add("Prestidigitation");
+            KnownSkills.Add("Disguise");
+            KnownSkills.Add("Disarm Traps");
+            KnownSkills.Add("Open Locks");
+
             PassiveHabilities.Add(disguisekit.Name, disguisekit.Description);
             PassiveHabilities.Add(thievestools.Name, thievestools.Description);
             PassiveHabilities.Add(citysecrets.Name, thievestools.Description);

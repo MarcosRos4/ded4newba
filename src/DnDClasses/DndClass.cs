@@ -13,7 +13,7 @@ namespace ded4newba.Src.DnDClasses
 
         public  List<string> SavingThrows {get; set;}
 
-        public  List<string> Skills {get; set;}
+        public  List<string> KnownSkills {get; set;}
 
         public Dictionary<string, string> Habilities {get;set;}
 

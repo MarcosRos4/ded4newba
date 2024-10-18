@@ -18,8 +18,11 @@ namespace ded4newba.src.Backgrounds
         );
 
         public Soldier(){
-            Skills = ["Athletics", "Intimidation", "Control Land Vehicle"];
-            Languages = [];
+            
+            KnownSkills.Add("Athletics");
+            KnownSkills.Add("Intimidation");
+            KnownSkills.Add("Control Land Vehicle");
+            
             PassiveHabilities.Add(militaryrank.Name, militaryrank.Description);
         }
     }

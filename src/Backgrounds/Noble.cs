@@ -15,9 +15,13 @@ namespace ded4newba.src.Backgrounds
             "cal noble if you need to."
         );
 
-        public Noble(){
-            Skills = ["History", "Persuasion"];
-            Languages = ["Elven"];
+        public Noble(string language){
+            
+            KnownSkills.Add("Persuasion");
+            KnownSkills.Add("History");
+            
+            Languages.Add(language);
+            
             PassiveHabilities.Add(positionofprivilege.Name, positionofprivilege.Description);
         }
     }

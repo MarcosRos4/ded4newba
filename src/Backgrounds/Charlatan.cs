@@ -32,8 +32,12 @@ namespace ded4newba.src.Backgrounds
         );
         
         public Charlatan(){
-            Skills = ["Prestidigitation", "Deception", "Disguise", "Forgery"];
-            Languages = [];
+            
+            KnownSkills.Add("Prestidigitation");
+            KnownSkills.Add("Deception");
+            KnownSkills.Add("Disguise");
+            KnownSkills.Add("Forgery");
+            
             PassiveHabilities.Add(disguisekit.Name, disguisekit.Description);
             PassiveHabilities.Add(forgerykit.Name, forgerykit.Description);
             PassiveHabilities.Add(falseidentity.Name, falseidentity.Description);
