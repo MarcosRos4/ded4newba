@@ -1,5 +1,6 @@
 using ded4newba.Src.PassiveHabilities;
 using ded4newba.Src.Backgrounds;
+using ded4newba.src.Habilities;
 
 namespace ded4newba.src.Backgrounds
 {
@@ -14,11 +15,23 @@ namespace ded4newba.src.Backgrounds
             "ace, or that it simply cannot be found. Unearthing the deepest secrets of the multiverse "+
             "can require an adventure or even a whole campaign."
         );
+        readonly Skill History = new(
+            "History",
+            "Intelligence",
+            true,
+            false
+        );
+        readonly Skill Arcana = new(
+            "Arcana",
+            "Intelligence",
+            true,
+            false
+        );
 
         public Sage(string language1, string language2){
             
-            KnownSkills.Add("Arcana");
-            KnownSkills.Add("History");
+            KnownSkills.Add(Arcana);
+            KnownSkills.Add(History);
             
             Languages.Add(language1);
             Languages.Add(language2);

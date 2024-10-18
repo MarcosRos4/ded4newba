@@ -8,7 +8,7 @@ namespace ded4newba.src.Races.Human
 {
     public class Human : Race
     {
-        public Human(){
+        public Human(string language){
             BonusAtributes.Add("Strength", 1);
             BonusAtributes.Add("Constitution", 1);
             BonusAtributes.Add("Dexterity", 1);
@@ -19,7 +19,7 @@ namespace ded4newba.src.Races.Human
             Movement = 30;
 
             Languages.Add("Common");
-            Languages.Add("Dwarvish"); // TODO escolher mais uma linguagem qualquer
+            Languages.Add(language); 
         }
     }
 }

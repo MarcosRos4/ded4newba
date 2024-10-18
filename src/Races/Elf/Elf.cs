@@ -34,8 +34,13 @@ namespace ded4newba.src.Races.Elf
             "hrough years of practice. After resting in this way, you gain the sa"+
             "me benefit that a human does from 8 hours of sleep."
         );
+        readonly Skill Perception = new(
+            "Perception",
+            "Wisdom",
+            true,
+            false
+        );
 
-        // Dwarven Toughness adiciona 1 ponto de vida a mais todo level up
 
         public Elf(){
             
@@ -50,9 +55,9 @@ namespace ded4newba.src.Races.Elf
 
             PassiveHabilities.Add(trance);
 
-            Advantages.Add(ADVfeyancestry);
+            Advantages.Add(ADVfeyancestry, "Charmed");
 
-            KnownSkills.Add("Perception");
+            KnownSkills.Add(Perception);
         
             Imunities.Add(IMUsleep);
         }        

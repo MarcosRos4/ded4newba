@@ -1,5 +1,6 @@
 using ded4newba.Src.PassiveHabilities;
 using ded4newba.Src.Backgrounds;
+using ded4newba.src.Habilities;
 
 namespace ded4newba.src.Backgrounds
 {
@@ -13,13 +14,37 @@ namespace ded4newba.src.Backgrounds
             "l shield you from the law or anyone else searching for you, though they w"+
             "ill not risk their lives for you."
         );
+        readonly Skill AnimalHandling = new(
+            "Animal Handling",
+            "Wisdom",
+            true,
+            false
+        );
+        readonly Skill Survival = new(
+            "Survival",
+            "Wisdom",
+            true,
+            false
+        );
+        readonly Skill ControlLandVehicle = new(
+            "Controll Land Vehicle",
+            "Dexterity",
+            true,
+            false
+        );
+        readonly Skill ArtisansTools = new(
+            "Artisan's Tools",
+            "Dexterity",
+            true,
+            false
+        );
         
         public FolkHero(){
             
-            KnownSkills.Add("Animal Handling");
-            KnownSkills.Add("Survival");
-            KnownSkills.Add("Controll Land Vehicle");
-            KnownSkills.Add("Artisan's Tools");
+            KnownSkills.Add(AnimalHandling);
+            KnownSkills.Add(Survival);
+            KnownSkills.Add(ControlLandVehicle);
+            KnownSkills.Add(ArtisansTools);
             
             PassiveHabilities.Add(rustichospitality.Name, rustichospitality.Description);
             

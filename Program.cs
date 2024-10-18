@@ -27,4 +27,5 @@ Console.WriteLine($"Nível: {shmeb.Level}");
 Console.WriteLine($"Meu nome é: {shmeb.Name}");
 
 shmeb.RollAtack("Strength");
-shmeb.RollSavingThrow("Charisma");
+Console.WriteLine($"");
+shmeb.RollSavingThrow("Charisma", "");

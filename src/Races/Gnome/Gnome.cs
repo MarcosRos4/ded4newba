@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using ded4newba.src.Habilities;
 using ded4newba.Src.Races;
 
@@ -40,9 +36,9 @@ namespace ded4newba.src.Races.Gnome
             Languages.Add("Common");
             Languages.Add("Gnomish");
 
-            Advantages.Add(charisma);
-            Advantages.Add(wisdom);
-            Advantages.Add(inteligence);
+            Advantages.Add(charisma, "Magic");
+            Advantages.Add(wisdom, "Magic");
+            Advantages.Add(inteligence, "Magic");
             
         }
     }

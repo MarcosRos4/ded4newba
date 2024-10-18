@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using ded4newba.src.Habilities;
 
 namespace ded4newba.Src.DnDClasses
 {
@@ -13,7 +10,8 @@ namespace ded4newba.Src.DnDClasses
 
         public  List<string> SavingThrows {get; set;}
 
-        public  List<string> KnownSkills {get; set;}
+        public  List<Skill> KnownSkills = [];
+        public Dictionary<Advantage, string> Advantages = [];
 
         public Dictionary<string, string> Habilities {get;set;}
 

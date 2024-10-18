@@ -1,5 +1,6 @@
 using ded4newba.Src.PassiveHabilities;
 using ded4newba.Src.Backgrounds;
+using ded4newba.src.Habilities;
 
 namespace ded4newba.src.Backgrounds
 {
@@ -22,11 +23,32 @@ namespace ded4newba.src.Backgrounds
             "will incur a debt to remain in the guild's good graces."
         );
 
+        
+        readonly Skill Insight = new(
+            "Insight",
+            "Wisdom",
+            true,
+            false
+        );
+        readonly Skill Persuasion = new(
+            "Persuasion",
+            "Charisma",
+            true,
+            false
+        );
+        readonly Skill ArtisansTools = new(
+            "Artisan's Tools",
+            "Dexterity",
+            true,
+            false
+        );
+        
+
         public GuildArtisan(){
             
-            KnownSkills.Add("Insight");
-            KnownSkills.Add("Persuasion");
-            KnownSkills.Add("Artisan's Tools"); 
+            KnownSkills.Add(Insight);
+            KnownSkills.Add(Persuasion);
+            KnownSkills.Add(ArtisansTools); 
             
             Languages.Add("Dwarvish");
 

@@ -1,5 +1,6 @@
 using ded4newba.Src.PassiveHabilities;
 using ded4newba.Src.Backgrounds;
+using ded4newba.src.Habilities;
 
 namespace ded4newba.src.Backgrounds
 {
@@ -19,10 +20,24 @@ namespace ded4newba.src.Backgrounds
             " if you remain on good terms with it, or a temple where you have found a new home. While near your temple,"+
             " you can call upon the priests for assistance, provided the assistance you ask for is not hazardous"+
             " and you remain in good standing with your temple.");
+
+        readonly Skill insight = new(
+            "Insight",
+            "Wisdom",
+            true,
+            false
+        );
+
+        readonly Skill religion = new(
+            "Religion",
+            "Intelligence",
+            true,
+            false
+        );
         public Acolyte(string language1, string language2){
             
-            KnownSkills.Add("Insight");
-            KnownSkills.Add("Religion");
+            KnownSkills.Add(insight);
+            KnownSkills.Add(religion);
             
             Languages.Add(language1);
             Languages.Add(language2);

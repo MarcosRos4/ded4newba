@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ded4newba.src.Habilities;
 using ded4newba.Src.PassiveHabilities;
 using ded4newba.Src.Races;
 
@@ -19,6 +20,13 @@ namespace ded4newba.src.Races.HalfOrc
 
         // TODO savage attacks tratar como talento
 
+        readonly Skill Intimidation = new(
+            "Intimidation",
+            "Charisma",
+            true,
+            false
+        );
+
         public HalfOrc(){
 
             BonusAtributes.Add("Strength", 2);
@@ -29,7 +37,7 @@ namespace ded4newba.src.Races.HalfOrc
             Languages.Add("Common");
             Languages.Add("Orc");
 
-            KnownSkills.Add("Intimidation");
+            KnownSkills.Add(Intimidation);
         }
     }
 }

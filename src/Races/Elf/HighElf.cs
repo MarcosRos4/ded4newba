@@ -3,11 +3,11 @@ namespace ded4newba.src.Races.Elf
     public class HighElf : Elf
     {
 
-        public HighElf(){
+        public HighElf(string language){
             
             BonusAtributes.Add("Intelligence", 1);
 
-            Languages.Add("Celestial"); // TODO escolher qual idioma
+            Languages.Add(language); // TODO escolher qual idioma
 
             // proeficiencia de item
             // Elf Weapon Training. You have proficiency with 

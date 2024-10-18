@@ -1,5 +1,6 @@
 using ded4newba.Src.PassiveHabilities;
 using ded4newba.Src.Backgrounds;
+using ded4newba.src.Habilities;
 
 namespace ded4newba.src.Backgrounds
 {
@@ -14,11 +15,25 @@ namespace ded4newba.src.Backgrounds
             " a member of the same social sphere. You can secure an audience with a lo"+
             "cal noble if you need to."
         );
+        
+        readonly Skill Persuasion = new(
+            "Persuasion",
+            "Charisma",
+            true,
+            false
+        );
+        
+        readonly Skill History = new(
+            "History",
+            "Intelligence",
+            true,
+            false
+        );
 
         public Noble(string language){
             
-            KnownSkills.Add("Persuasion");
-            KnownSkills.Add("History");
+            KnownSkills.Add(Persuasion);
+            KnownSkills.Add(History);
             
             Languages.Add(language);
             

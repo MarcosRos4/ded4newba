@@ -1,5 +1,6 @@
 using ded4newba.Src.PassiveHabilities;
 using ded4newba.Src.Backgrounds;
+using ded4newba.src.Habilities;
 
 namespace ded4newba.src.Backgrounds
 {
@@ -27,11 +28,30 @@ namespace ded4newba.src.Backgrounds
         );
         
         
+        readonly Skill Medicine = new(
+            "Medicine",
+            "Wisdom",
+            true,
+            false
+        );
+        readonly Skill Religion = new(
+            "Religion",
+            "Intelligence",
+            true,
+            false
+        );
+        readonly Skill Nature = new(
+            "Nature",
+            "Intelligence",
+            true,
+            false
+        );
+        
         public Hermit(string language){
             
-            KnownSkills.Add("Medicine");
-            KnownSkills.Add("Religion");
-            KnownSkills.Add("Nature");
+            KnownSkills.Add(Medicine);
+            KnownSkills.Add(Religion);
+            KnownSkills.Add(Nature);
 
             Languages.Add(language);
             

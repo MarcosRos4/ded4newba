@@ -17,7 +17,7 @@ namespace ded4newba.src.Races.Gnome
         );
 
         readonly Advantage ADVartificerlore = new(
-            "History: Magic Items",
+            "Artificer's Lore",
             "Intelligence",
             "",
             "Whenever you make an Intelligence (History) check related to magic items, alchemical"+
@@ -27,7 +27,7 @@ namespace ded4newba.src.Races.Gnome
 
         readonly PassiveHability tinker = new(
             "Tinker",
-            "You have proficiency with artisan’s tools (tinker’s tools). Using those tools, you "+
+            "You have proficiency with artisan's tools (tinker's tools). Using those tools, you "+
             "can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). "
         );
 
@@ -38,7 +38,7 @@ namespace ded4newba.src.Races.Gnome
             PassiveHabilities.Add(artificerlore);
             PassiveHabilities.Add(tinker);
 
-            Advantages.Add(ADVartificerlore);
+            Advantages.Add(ADVartificerlore, "Artificer's Lore");
         }
     }
 }

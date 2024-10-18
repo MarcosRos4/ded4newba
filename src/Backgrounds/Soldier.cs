@@ -1,6 +1,7 @@
 
 using ded4newba.Src.PassiveHabilities;
 using ded4newba.Src.Backgrounds;
+using ded4newba.src.Habilities;
 
 namespace ded4newba.src.Backgrounds
 {
@@ -16,12 +17,30 @@ namespace ded4newba.src.Backgrounds
             "ess to friendly military encampments and fortresses where your rank is r"+
             "ecognized."
         );
+        readonly Skill Athletics = new(
+            "Athletics",
+            "Strength",
+            true,
+            false
+        );
+        readonly Skill Intimidation = new(
+            "Intimidation",
+            "Charisma",
+            true,
+            false
+        );
+        readonly Skill ControlLandVehicle = new(
+            "Control Land Vehicle",
+            "Dexterity",
+            true,
+            false
+        );
 
         public Soldier(){
             
-            KnownSkills.Add("Athletics");
-            KnownSkills.Add("Intimidation");
-            KnownSkills.Add("Control Land Vehicle");
+            KnownSkills.Add(Athletics);
+            KnownSkills.Add(Intimidation);
+            KnownSkills.Add(ControlLandVehicle);
             
             PassiveHabilities.Add(militaryrank.Name, militaryrank.Description);
         }

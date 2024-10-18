@@ -24,3 +24,5 @@ Control Land Vehicle=Dexterity
 Artisan's Tools=Dexterity
 Control Aquatic Vehicle=Dexterity
 Navigator's Tools=Wisdom
+Artificer's Lore=Intelligence
+Stonecunning=Intelligence

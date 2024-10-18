@@ -1,5 +1,6 @@
 using ded4newba.Src.PassiveHabilities;
 using ded4newba.Src.Backgrounds;
+using ded4newba.src.Habilities;
 
 namespace ded4newba.src.Backgrounds
 {
@@ -31,12 +32,40 @@ namespace ded4newba.src.Backgrounds
             "e handwriting you are trying to copy."
         );
         
+        readonly Skill Prestidigitation = new(
+            "Prestidigitation",
+            "Dexterity",
+            true,
+            false
+        );
+
+        readonly Skill Deception = new(
+            "Deception",
+            "Charisma",
+            true,
+            false
+        );
+
+        readonly Skill Disguise = new(
+            "Disguise",
+            "Charisma",
+            true,
+            false
+        );
+
+        readonly Skill Forgery = new(
+            "Forgery",
+            "Dexterity",
+            true,
+            false
+        );
+
         public Charlatan(){
             
-            KnownSkills.Add("Prestidigitation");
-            KnownSkills.Add("Deception");
-            KnownSkills.Add("Disguise");
-            KnownSkills.Add("Forgery");
+            KnownSkills.Add(Prestidigitation);
+            KnownSkills.Add(Deception);
+            KnownSkills.Add(Disguise);
+            KnownSkills.Add(Forgery);
             
             PassiveHabilities.Add(disguisekit.Name, disguisekit.Description);
             PassiveHabilities.Add(forgerykit.Name, forgerykit.Description);

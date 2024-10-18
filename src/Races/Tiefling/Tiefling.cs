@@ -1,4 +1,5 @@
 using ded4newba.src.Habilities;
+using ded4newba.Src.PassiveHabilities;
 using ded4newba.Src.Races;
 
 namespace ded4newba.src.Races.Tiefling
@@ -7,9 +8,9 @@ namespace ded4newba.src.Races.Tiefling
     {
         //TODO infernal legacy magias
 
-        readonly Resistance resistance = new(
+        readonly PassiveHability resistance = new(
             "Hellish Resistance",
-            "Fire",
+            
             "You have resistance to fire damage."
         );
 
@@ -20,7 +21,9 @@ namespace ded4newba.src.Races.Tiefling
             
             DarkVision = true;
 
-            Resistances.Add(resistance);
+            PassiveHabilities.Add(resistance);
+
+            Resistances.Add("Fire");
 
             Languages.Add("Common");
             Languages.Add("Infernal");

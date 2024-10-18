@@ -1,5 +1,6 @@
 using ded4newba.Src.PassiveHabilities;
 using ded4newba.Src.Backgrounds;
+using ded4newba.src.Habilities;
 
 namespace ded4newba.src.Backgrounds
 {
@@ -17,12 +18,38 @@ namespace ded4newba.src.Backgrounds
             " You know how to get messages to and from your contact, even over great distances; specifically,"+
             " you know the local messengers, corrupt caravan masters, and seedy sailors who can deliver messages for you."
         );
+
+        readonly Skill Deception = new(
+            "Deception",
+            "Charisma",
+            true,
+            false
+        );
+        readonly Skill OpenLock = new(
+            "Open Lock",
+            "Dexterity",
+            true,
+            false
+        );
+        readonly Skill DisarmTrap = new(
+            "Disarm Trap",
+            "Dexterity",
+            true,
+            false
+        );
+        readonly Skill Stealth = new(
+            "Stealth",
+            "Dexterity",
+            true,
+            false
+        );
+
         public Criminal(){
             
-            KnownSkills.Add("Deception");
-            KnownSkills.Add("Stealth");
-            KnownSkills.Add("Disarm Trap");
-            KnownSkills.Add("Open Lock");
+            KnownSkills.Add(Deception);
+            KnownSkills.Add(Stealth);
+            KnownSkills.Add(DisarmTrap);
+            KnownSkills.Add(OpenLock);
             
             PassiveHabilities.Add(thievestools.Name, thievestools.Description);
             PassiveHabilities.Add(criminalcontact.Name, criminalcontact.Description);

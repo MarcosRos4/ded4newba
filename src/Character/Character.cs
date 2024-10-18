@@ -1,6 +1,8 @@
 using ded4newba.Src.DnDClasses;
 using ded4newba.Src.Races;
 using ded4newba.Src.Backgrounds;
+using ded4newba.src.Habilities;
+using System.ComponentModel;
 
 namespace ded4newba.Src.Character
 {
@@ -33,11 +35,18 @@ namespace ded4newba.Src.Character
 
         public List<string> SavingThrows = [];
 
-        public List<string> KnownSkills = [];
+        public Dictionary<string, Skill> Skills = [];
 
         public Dictionary<string, string> AllSkills = [];
         
         public Dictionary<string, string> PassiveHabilities = [];
+
+        public List<string> Resistances = [];
+        
+        // a string pode ser dois tipos de info: efeito (poisoned, etc) ou
+        // o nome de perícia a qual a vantagem se aplica, isso pra poder ser
+        // utilizada tanto nas rolagens de save quanto de pericia
+        public Dictionary<Advantage, string> Advantages = [];
 
         readonly Random Roll = new();
 
@@ -59,8 +68,8 @@ namespace ded4newba.Src.Character
             CurrentLifePoints = TotalLifePoints;
             SavingThrows = DndClass.SavingThrows;
             SetProfiencyBonus();
-            SetKnownSkills();
             SetAllSkills();
+            SetProficientSkills();
             SetPassiveHabilities();
         }
 
@@ -68,14 +77,15 @@ namespace ded4newba.Src.Character
             
             try
             {   // lê o arquivo
-                var file = File.ReadAllLines("AllSkills.txt");
+                var file = File.ReadAllLines("./src/Character/AllSkills.txt");
+                Skill skill = new("","",false, false);
                 foreach (var line in file)
-                { // para cada linha divide a linha em duas partes, a chave e o valor
+                {   // para cada linha divide a linha em 2 partes,
+                    // nome, atributo
                     var split = line.Split('=');
-                    if (split.Length == 2 )
-                    {   // adiciona a chave e o valor ao dicionario
-                        AllSkills.Add(split[0], split[1]);
-                    }
+                    skill.Name = split[0];
+                    skill.Attribute = split[1];
+                    Skills.Add(skill.Name,skill);
                 }
             }
             catch (Exception ex)
@@ -96,15 +106,15 @@ namespace ded4newba.Src.Character
             // }            
         }
 
-        public void SetKnownSkills(){
+        public void SetProficientSkills(){
             foreach (var skill in Background.KnownSkills)
             {
-                KnownSkills.Add(skill);
+                Skills[skill.Name] = skill;
             }
 
             foreach (var skill in DndClass.KnownSkills)
             {
-                KnownSkills.Add(skill);
+                Skills[skill.Name] = skill;
             }
         }
 
@@ -123,35 +133,78 @@ namespace ded4newba.Src.Character
             };
         }
 
-        public void RollSavingThrow(string score){
+        public int RollSavingThrow(string score, string condition){
             
-            int result = Roll.Next(1,21);
-            
+            int firstRoll = Roll.Next(1,21);
+            int secondRoll = Roll.Next(1,21);
+
+            // se tem proeficiencia no teste de resistencia, adiciona
             if (SavingThrows.Contains(score))
-                Console.WriteLine($"AtackRoll: {result} + {GetAtributeBonus(score)} + {ProficiencyBonus} = {result + GetAtributeBonus(score) + ProficiencyBonus}");
-            else
-                Console.WriteLine($"AtackRoll: {result} + {GetAtributeBonus(score)} = {result + GetAtributeBonus(score)}");
+            firstRoll += GetAtributeBonus(score); secondRoll += GetAtributeBonus(score); 
+            
+            // se tem vantagem escolhe o maior valor
+            foreach (var advantage in Advantages) // checa o valor do item, que sempre é um efeito (poisoned,etc)
+            if(advantage.Value == condition)
+            return Math.Max(firstRoll, secondRoll);
+            
+            return firstRoll;
         }
 
         public void RollAtack(string score){
             
             int result = Roll.Next(1,21);
             
-            Console.WriteLine($"{score}Roll: {result} + {GetAtributeBonus(score)} + {ProficiencyBonus} = {result + GetAtributeBonus(score) + ProficiencyBonus}");
+            Console.WriteLine($"{score} Atack Roll: {result} + {GetAtributeBonus(score)} + {ProficiencyBonus} = {result + GetAtributeBonus(score) + ProficiencyBonus}");
         }
     
         public int RollSkillCheck(string skill){
-            int result = Roll.Next(1,21);
-            // checa qual é o atributo que a skill usa
-            AllSkills.TryGetValue(skill, out string atribute);
-            if (KnownSkills.Contains(skill)) // checa se a skill é conhecida
+            int firstRoll = Roll.Next(1,21);
+            int secondRoll = Roll.Next(1,21);
+
+
+            foreach (var item in Skills) // percorre todas as pericias
             {
-                // se sim retorna a rolagem + bonus + proeficiencia
-                return result + ProficiencyBonus + GetAtributeBonus(atribute);    
+                if (item.Value.Proficient) // se for proficiente adiciona bonus de proficiencia
+                {
+                    firstRoll += ProficiencyBonus + GetAtributeBonus(item.Value.Attribute);    
+                    secondRoll += ProficiencyBonus + GetAtributeBonus(item.Value.Attribute);
+
+                    if (item.Value.SuperProficient) // se for super-proficiente adiciona 2 * bonus de proficiencia
+                        firstRoll += ProficiencyBonus + GetAtributeBonus(item.Value.Attribute);    
+                        secondRoll += ProficiencyBonus + GetAtributeBonus(item.Value.Attribute);  
+                }
+                else
+                { // se nao só adiciona o bonus de atributo
+                    firstRoll += GetAtributeBonus(item.Value.Attribute);    
+                    secondRoll += GetAtributeBonus(item.Value.Attribute); 
+                }
             }
-                // se não retorna rolagem +  bonus
-            return result + GetAtributeBonus(atribute);
+
+            // se houver vantagem ele pega o maior valor, se nao retorna o primeiro
+            foreach (var advantage in Advantages)
+            if(advantage.Value == skill)
+            return Math.Max(firstRoll, secondRoll);
             
+            return firstRoll;
+            
+        }
+    
+        public void TakeDamage(Dictionary<string, int> damageSum){
+            
+            foreach (var damage in damageSum)
+            {
+                if (Resistances.Contains(damage.Key) )
+                {
+                    CurrentLifePoints -= damage.Value / 2;
+                    break;
+                }
+
+                CurrentLifePoints -= damage.Value;
+            }
+        }
+
+        public void Heal(int healthpoints){
+            CurrentLifePoints += healthpoints;
         }
     }
 }

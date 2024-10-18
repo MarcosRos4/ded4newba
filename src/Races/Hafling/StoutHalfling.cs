@@ -1,12 +1,12 @@
 using ded4newba.src.Habilities;
+using ded4newba.Src.PassiveHabilities;
 
 namespace ded4newba.src.Races.Hafling
 {
     public class StoutHalfling : Halfling
     {
-        readonly Resistance resistance = new(
+        readonly PassiveHability resistance = new(
             "Stout Resistance",
-            "Poison",
             "You have advantage on saving throws against poison, and you have resistance against poison damage."
         );
 
@@ -22,9 +22,11 @@ namespace ded4newba.src.Races.Hafling
 
             BonusAtributes.Add("Constitution", 1);
 
-            Advantages.Add(advantage);
+            Advantages.Add(advantage, "Poisoned");
 
-            Resistances.Add(resistance);
+            PassiveHabilities.Add(resistance);
+
+            Resistances.Add("Poison");
         }
     }
 }

@@ -1,5 +1,6 @@
 using ded4newba.Src.PassiveHabilities;
 using ded4newba.Src.Backgrounds;
+using ded4newba.src.Habilities;
 
 namespace ded4newba.src.Backgrounds
 {
@@ -29,12 +30,30 @@ namespace ded4newba.src.Backgrounds
             "performance makes you a kind of local figure. When strangers recognize you "+
             "in a city where you have performed, they generally like you."
         );
+        readonly Skill Acrobatics = new(
+            "Acrobatics",
+            "Dexterity",
+            true,
+            false
+        );
+        readonly Skill Performance = new(
+            "Performance",
+            "Charisma",
+            true,
+            false
+        );
+        readonly Skill Disguise = new(
+            "Disguise",
+            "Charisma",
+            true,
+            false
+        );
 
         public Entertainer(){
             
-            KnownSkills.Add("Acrobatics");
-            KnownSkills.Add("Performance");
-            KnownSkills.Add("Disguise");
+            KnownSkills.Add(Acrobatics);
+            KnownSkills.Add(Performance);
+            KnownSkills.Add(Disguise);
             
             PassiveHabilities.Add(disguisekit.Name, disguisekit.Description);
             PassiveHabilities.Add(musicalinstrument.Name, musicalinstrument.Description);

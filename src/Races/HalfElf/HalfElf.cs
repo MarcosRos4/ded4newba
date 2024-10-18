@@ -20,21 +20,21 @@ namespace ded4newba.src.Races.HalfElf
             "charmed, and magic can't put you to sleep."
         );
 
-        public HalfElf(){
+        public HalfElf(string language, string atribute1, string atribute2){
 
             BonusAtributes.Add("Charisma", 2);
-            // TODO adicionar +1 a outros dois atributos distintos
+            BonusAtributes.Add(atribute1, 1);
+            BonusAtributes.Add(atribute2, 1);
 
             DarkVision = true;
 
             Imunities.Add(IMUsleep);
 
-            Advantages.Add(ADVfeyancestry);
+            Advantages.Add(ADVfeyancestry, "Charmed");
 
             Languages.Add("Common");
             Languages.Add("Elvish");
-            // TODO adicionar uma outra linguagem qualquer Languages.Add("Common");
-            
+            Languages.Add(language);           
         
         }
     }

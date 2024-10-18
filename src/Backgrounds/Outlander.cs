@@ -1,5 +1,6 @@
 using ded4newba.Src.PassiveHabilities;
 using ded4newba.Src.Backgrounds;
+using ded4newba.src.Habilities;
 
 namespace ded4newba.src.Backgrounds
 {
@@ -20,12 +21,30 @@ namespace ded4newba.src.Backgrounds
             "ive other people each day, provided that the land offers berries, small fru"+
             "its, water, and the like."
         );
+        readonly Skill Survival = new(
+            "Survival",
+            "Wisdom",
+            true,
+            false
+        );
+        readonly Skill Athletics = new(
+            "Athletics",
+            "Strength",
+            true,
+            false
+        );
+        readonly Skill Performance = new(
+            "Performance",
+            "Charisma",
+            true,
+            false
+        );
 
         public Outlander(string language){
             
-            KnownSkills.Add("Survival");
-            KnownSkills.Add("Athletics");
-            KnownSkills.Add("Performance");
+            KnownSkills.Add(Survival);
+            KnownSkills.Add(Athletics);
+            KnownSkills.Add(Performance);
             
             Languages.Add(language);
             

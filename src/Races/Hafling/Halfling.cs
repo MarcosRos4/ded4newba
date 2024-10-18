@@ -31,7 +31,7 @@ namespace ded4newba.src.Races.Hafling
 
             Movement = 25;
 
-            Advantages.Add(ADVbrave);
+            Advantages.Add(ADVbrave, "Frightened");
 
             PassiveHabilities.Add(PShalfingnimbleness);
 

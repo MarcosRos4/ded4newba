@@ -14,9 +14,8 @@ namespace ded4newba.src.Races.Dwarf
             " and you have resistance against poison damage."
         );
 
-        readonly Resistance RESdwarvenresilience = new(
+        readonly PassiveHability dwarvenresilience = new(
             "Dwarven Resilience",
-            "Poison",
             "You have advantage on saving throws against poison,"+
             " and you have resistance against poison damage."
         );
@@ -36,6 +35,20 @@ namespace ded4newba.src.Races.Dwarf
             " of your normal proficiency bonus."
         );
 
+        readonly Skill ArtisanTools = new(
+            "Artisan's Tools",
+            "Dexterity",
+            true,
+            false
+        );
+        readonly Skill Stonecunning = new(
+            "Stonecunning",
+            "Intelligence",
+            true,
+            true
+        );
+        
+
         public Dwarf(){
             BonusAtributes.Add("Constitution", 2);
 
@@ -48,14 +61,14 @@ namespace ded4newba.src.Races.Dwarf
 
             PassiveHabilities.Add(toolproficiency);
             PassiveHabilities.Add(stonecunning);
+            PassiveHabilities.Add(dwarvenresilience);
 
-            Advantages.Add(ADVdwarvenresilience);
+            Advantages.Add(ADVdwarvenresilience, "Poisoned");
 
-            Resistances.Add(RESdwarvenresilience);
+            Resistances.Add("Poison");
 
-            KnownSkills.Add("Artisan's Tools", "Dexterity");
-            KnownSkills.Add("Stonework History", "");
-            // TODO: adicionar a super-proeficiencia
+            KnownSkills.Add(ArtisanTools);
+            KnownSkills.Add(Stonecunning);
         }
     }
 }

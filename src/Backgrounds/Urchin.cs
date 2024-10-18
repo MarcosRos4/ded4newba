@@ -1,5 +1,6 @@
 using ded4newba.Src.PassiveHabilities;
 using ded4newba.Src.Backgrounds;
+using ded4newba.src.Habilities;
 
 namespace ded4newba.src.Backgrounds
 {
@@ -25,13 +26,43 @@ namespace ded4newba.src.Backgrounds
             "ou (and the companions you lead) can travel between any two locations in the"+
             " city at twice the normal speed."
         );
+        readonly Skill OpenLocks = new(
+            "Open Locks",
+            "Dexterity",
+            true,
+            false
+        );
+        readonly Skill DisarmTraps = new(
+            "Disarm Traps",
+            "Dexterity",
+            true,
+            false
+        );
+        readonly Skill Disguise = new(
+            "Disguise",
+            "Charisma",
+            true,
+            false
+        );
+        readonly Skill Prestidigitation = new(
+            "Prestidigitation",
+            "Dexterity",
+            true,
+            false
+        );
+        readonly Skill Stealth = new(
+            "Stealth",
+            "Dexterity",
+            true,
+            false
+        );
         
         public Urchin(){
-            KnownSkills.Add("Stealth");
-            KnownSkills.Add("Prestidigitation");
-            KnownSkills.Add("Disguise");
-            KnownSkills.Add("Disarm Traps");
-            KnownSkills.Add("Open Locks");
+            KnownSkills.Add(Stealth);
+            KnownSkills.Add(Prestidigitation);
+            KnownSkills.Add(Disguise);
+            KnownSkills.Add(DisarmTraps);
+            KnownSkills.Add(OpenLocks);
 
             PassiveHabilities.Add(disguisekit.Name, disguisekit.Description);
             PassiveHabilities.Add(thievestools.Name, thievestools.Description);

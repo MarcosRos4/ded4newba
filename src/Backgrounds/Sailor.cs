@@ -1,5 +1,6 @@
 using ded4newba.Src.PassiveHabilities;
 using ded4newba.Src.Backgrounds;
+using ded4newba.src.Habilities;
 
 namespace ded4newba.src.Backgrounds
 {
@@ -21,12 +22,36 @@ namespace ded4newba.src.Backgrounds
             "ll take to get to your destination. In exchange for free passage, you and y"+
             "our companions are expected to assist the crew during the voyage."
         );
+        readonly Skill Athletics = new(
+            "Arcana",
+            "Intelligence",
+            true,
+            false
+        );
+        readonly Skill Perception = new(
+            "Arcana",
+            "Intelligence",
+            true,
+            false
+        );
+        readonly Skill NavigatorsTools = new(
+            "Navigator's Tools",
+            "Wisdom",
+            true,
+            true
+        );
+        readonly Skill ControlAquaticVehicle = new(
+            "Control Aquatic Vehicle",
+            "Dexterity",
+            true,
+            false
+        );
         public Sailor(){
             
-            KnownSkills.Add("Athletics");
-            KnownSkills.Add("Perception");
-            KnownSkills.Add("Navigator's Tools");
-            KnownSkills.Add("Control Aquatic Vehicle");
+            KnownSkills.Add(Athletics);
+            KnownSkills.Add(Perception);
+            KnownSkills.Add(NavigatorsTools);
+            KnownSkills.Add(ControlAquaticVehicle);
 
             PassiveHabilities.Add(navigatorstools.Name, navigatorstools.Description);
             PassiveHabilities.Add(shipticket.Name, shipticket.Description);
