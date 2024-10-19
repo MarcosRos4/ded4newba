@@ -1,5 +1,5 @@
 using ded4newba.src.Habilities;
-using ded4newba.Src.PassiveHabilities;
+using ded4newba.Src.Habilities;
 
 namespace ded4newba.Src.Races
 {

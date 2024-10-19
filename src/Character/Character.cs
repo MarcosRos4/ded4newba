@@ -3,7 +3,7 @@ using ded4newba.Src.Races;
 using ded4newba.Src.Backgrounds;
 using ded4newba.src.Habilities;
 using ded4newba.src.Habilities.Feats;
-using ded4newba.Src.PassiveHabilities;
+using ded4newba.Src.Habilities;
 
 namespace ded4newba.Src.Character
 {
@@ -23,6 +23,8 @@ namespace ded4newba.Src.Character
         public Background Background = new();
 
         public int TotalLifePoints;
+
+        public List<int> LifePointsProgression = [];
 
         public int CurrentLifePoints { get; set; }
 
@@ -66,7 +68,8 @@ namespace ded4newba.Src.Character
             Background background,
             Dictionary<string, int> abilityscores,
             string name,
-            Dictionary<string, Feat> feats
+            Dictionary<string, Feat> feats,
+            bool luck
         )
         {
             Race = race;
@@ -88,8 +91,33 @@ namespace ded4newba.Src.Character
             SetAdvantages();
             SetInitiative();
             SetLanguages();
+            SetTotalLifePoints(luck);
         }
+        public void SetTotalLifePoints(bool luck){
+            
+            if (luck)
+            {
+                for (int i = 0; i < Level-1; i++)
+                {
+                    int roll = Roll.Next(2, DndClass.LifeDice);
+                    LifePointsProgression.Add(roll);
+                    TotalLifePoints += roll + GetAtributeBonus("Constitution");
+                }
+            }
+            else
+            {
+                for (int i = 0; i < Level-1; i++)
+                {
+                    LifePointsProgression.Add(DndClass.LifeDice / 2 + 1);
 
+                    TotalLifePoints += DndClass.LifeDice / 2 + 1 + GetAtributeBonus("Constitution");
+                }
+            }
+            if (Feats.TryGetValue("Tough", out Feat value))
+            {
+                TotalLifePoints += 2 * Level;
+            }
+        }
         public void SetAdvantages(){
             foreach (var advantage in Race.Advantages)
             {

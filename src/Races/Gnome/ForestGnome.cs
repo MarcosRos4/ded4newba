@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ded4newba.Src.PassiveHabilities;
+using ded4newba.Src.Habilities;
 
 namespace ded4newba.src.Races.Gnome
 {

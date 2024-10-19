@@ -13,6 +13,7 @@ Feat keenMind = new KeenMind();
 Feat linguist = new Linguist("Abissal", "Dwarvish", "Elvish");
 Feat alert = new Alert();
 Feat actor =  new Actor();
+Feat tough =  new Tough();
 Character shmeb = new(
     bard,
     gnome,
@@ -27,11 +28,22 @@ Character shmeb = new(
         {"Charisma", 12},
     },
     "Shmeb",
-    new Dictionary<string, Feat> {{"Keen Mind", keenMind}, {"Linguist", linguist}, {"Alert", alert}, {"Actor", actor}}
+    new Dictionary<string, Feat> {
+            {"Keen Mind", keenMind},
+            {"Linguist", linguist},
+            {"Alert", alert},
+            {"Actor", actor},
+            {"Tough", tough}
+        },
+    false
     );
-Console.Clear();
-Console.WriteLine($"{shmeb.TotalLifePoints} pontos de vida");
-Console.WriteLine($"Nível: {shmeb.Level}");
+
+Console.Write($"{shmeb.TotalLifePoints} pontos de vida, Progressão: ");
+foreach (var item in shmeb.LifePointsProgression)
+{
+    Console.Write($"{item}, ");
+}
+Console.WriteLine($"\nNível: {shmeb.Level}");
 Console.WriteLine($"Meu nome é: {shmeb.Name}");
 Console.WriteLine($"Iniciativa: {shmeb.Initiative}");
 shmeb.RollAtack("Strength");

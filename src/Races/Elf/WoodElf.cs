@@ -1,4 +1,4 @@
-using ded4newba.Src.PassiveHabilities;
+using ded4newba.Src.Habilities;
 
 namespace ded4newba.src.Races.Elf
 {

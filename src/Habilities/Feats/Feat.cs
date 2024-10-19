@@ -1,4 +1,4 @@
-using ded4newba.Src.PassiveHabilities;
+using ded4newba.Src.Habilities;
 
 namespace ded4newba.src.Habilities.Feats
 {
@@ -13,8 +13,6 @@ namespace ded4newba.src.Habilities.Feats
         public List<Skill> Skills =[];
 
         public List<string> Languages =[];
-
-        public List<string> Resistances= [];
 
         public int Initiative = 0;
 
