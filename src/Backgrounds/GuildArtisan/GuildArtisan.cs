@@ -1,12 +1,35 @@
-using ded4newba.Src.PassiveHabilities;
 using ded4newba.Src.Backgrounds;
-using ded4newba.src.Habilities;
 
-namespace ded4newba.src.Backgrounds
+namespace ded4newba.src.Backgrounds.GuildArtisan
 {
     public class GuildArtisan : Background
     {
-        readonly private PassiveHability guildassociate = new(
+        public GuildArtisan(string language){
+            
+            KnownSkills.AddRange([
+                new(
+                "Insight",
+                "Wisdom",
+                true,
+                false
+                ),
+                new(
+                "Persuasion",
+                "Charisma",
+                true,
+                false
+                ),
+                new(
+                "Artisan's Tools",
+                "Dexterity",
+                true,
+                false
+                )
+            ]);
+            
+            Languages.Add(language);
+
+            PassiveHabilities.Add(new(
             "Guild Associate",
             "As a captive and respected member of the guild, you can count on certain "+
             "benefits guaranteed by the society. Your comrades, guild members, will pr"+
@@ -21,38 +44,7 @@ namespace ded4newba.src.Backgrounds
             "may require donations of money or magical items to the guild's coffers. Y"+
             "ou must pay dues of 5 gp per month to the guild. If you fail to pay, you "+
             "will incur a debt to remain in the guild's good graces."
-        );
-
-        
-        readonly Skill Insight = new(
-            "Insight",
-            "Wisdom",
-            true,
-            false
-        );
-        readonly Skill Persuasion = new(
-            "Persuasion",
-            "Charisma",
-            true,
-            false
-        );
-        readonly Skill ArtisansTools = new(
-            "Artisan's Tools",
-            "Dexterity",
-            true,
-            false
-        );
-        
-
-        public GuildArtisan(){
-            
-            KnownSkills.Add(Insight);
-            KnownSkills.Add(Persuasion);
-            KnownSkills.Add(ArtisansTools); 
-            
-            Languages.Add("Dwarvish");
-
-            PassiveHabilities.Add(guildassociate.Name, guildassociate.Description);
+            ));
         }
     }
 }

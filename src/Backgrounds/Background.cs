@@ -10,6 +10,6 @@ namespace ded4newba.Src.Backgrounds
         // lista de string de linguagens que o background tem
         public List<string> Languages = [];
         // dicionario de string,string de passivas que o background tem
-        public Dictionary<string, string> PassiveHabilities = [];
+        public List<PassiveHability> PassiveHabilities = [];
     }
 }

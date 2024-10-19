@@ -4,11 +4,11 @@ namespace ded4newba.src.Habilities.Feats
 {
     public class Feat
     {
-        public FeatRequirement Requirement { get; set; }
+        //public FeatRequirement Requirement { get; set; }
 
         public PassiveHability PassiveHability { get; set; }
 
-        public KeyValuePair<string, int> AttributeBonus { get; set; }
+        public AttributeBonus AttributeBonus { get; set; } = new("", 0);
 
         public List<Skill> Skills =[];
 
@@ -16,15 +16,17 @@ namespace ded4newba.src.Habilities.Feats
 
         public List<string> Resistances= [];
 
-        public int Iniciative = 0;
+        public int Initiative = 0;
 
-        // objeto vantagem, string condição (poisoned, charmed ...)
+        // TODO adicionar imunidades, alerta é imune a ser surpreso
+
+        // objeto vantagem, string condição (poisoned, charmed ...) ou pericia (Deception, Insight ...)
         public Dictionary<Advantage, string> Advantages = [];
 
         public int BonusLifePoints=0;
 
-        // nenhuma, armadura leve + escudos, média, pesada==todas
-        public List<string> ArmorProficiency =[""];
+        // nenhuma, armadura leve + escudos, média, pesada==todas"
+        //public List<string> ArmorProficiency =[""];
         
                 
 

@@ -1,13 +1,31 @@
-using ded4newba.Src.PassiveHabilities;
 using ded4newba.Src.Backgrounds;
-using ded4newba.src.Habilities;
 
-namespace ded4newba.src.Backgrounds
+namespace ded4newba.src.Backgrounds.Acolyte
 {
     public class Acolyte : Background
     {
-
-        readonly PassiveHability proficiency = new(
+        public Acolyte(string language1, string language2){
+            
+            KnownSkills.AddRange([
+                new
+                (
+                    "Insight",
+                    "Wisdom",
+                    true,
+                    false
+                ),
+                new
+                (
+                    "Religion",
+                    "Intelligence",
+                    true,
+                    false
+                )
+            ]);
+            
+            Languages.AddRange([language1, language2]);
+            
+            PassiveHabilities.Add(new(
             "Shelter of the Faithful",// name
             // description
             "As an acolyte, you command the respect of those who share your faith," +
@@ -19,30 +37,7 @@ namespace ded4newba.src.Backgrounds
             " and you have a residence there. This could be the temple where you used to serve,"+
             " if you remain on good terms with it, or a temple where you have found a new home. While near your temple,"+
             " you can call upon the priests for assistance, provided the assistance you ask for is not hazardous"+
-            " and you remain in good standing with your temple.");
-
-        readonly Skill insight = new(
-            "Insight",
-            "Wisdom",
-            true,
-            false
-        );
-
-        readonly Skill religion = new(
-            "Religion",
-            "Intelligence",
-            true,
-            false
-        );
-        public Acolyte(string language1, string language2){
-            
-            KnownSkills.Add(insight);
-            KnownSkills.Add(religion);
-            
-            Languages.Add(language1);
-            Languages.Add(language2);
-            
-            PassiveHabilities.Add(proficiency.Name, proficiency.Description);
+            " and you remain in good standing with your temple."));
             
         }
     }

@@ -36,9 +36,9 @@ namespace ded4newba.src.Races.Gnome
             Languages.Add("Common");
             Languages.Add("Gnomish");
 
-            Advantages.Add(charisma, "Magic");
-            Advantages.Add(wisdom, "Magic");
-            Advantages.Add(inteligence, "Magic");
+            Advantages.Add(charisma, "Charisma Saves Against Magic");
+            Advantages.Add(wisdom, "Wisdom Saves Against Magic");
+            Advantages.Add(inteligence, "Intelligence Saves Against Magic");
             
         }
     }

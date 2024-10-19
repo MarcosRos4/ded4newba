@@ -1,4 +1,4 @@
-namespace ded4newba.Src.PassiveHabilities
+namespace ded4newba.Src.Habilities
 {
     public class PassiveHability(string Name, string Description)
     {

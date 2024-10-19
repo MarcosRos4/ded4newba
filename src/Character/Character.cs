@@ -2,6 +2,8 @@ using ded4newba.Src.DnDClasses;
 using ded4newba.Src.Races;
 using ded4newba.Src.Backgrounds;
 using ded4newba.src.Habilities;
+using ded4newba.src.Habilities.Feats;
+using ded4newba.Src.PassiveHabilities;
 
 namespace ded4newba.Src.Character
 {
@@ -24,9 +26,9 @@ namespace ded4newba.Src.Character
 
         public int CurrentLifePoints { get; set; }
 
-        public int ArmorClass { get; set; }
+        public int ArmorClass { get; set; } = 0;
 
-        public int Iniciative { get; set; }
+        public int Initiative { get; set; } = 0;
 
         public int Movement { get; set; }
 
@@ -38,9 +40,7 @@ namespace ded4newba.Src.Character
         // <Nome da Skill, Skill>
         public Dictionary<string, Skill> Skills = [];
 
-        public Dictionary<string, string> AllSkills = [];
-        
-        public Dictionary<string, string> PassiveHabilities = [];
+        public List<PassiveHability> PassiveHabilities = [];
 
         public List<string> Resistances = [];
         
@@ -50,28 +50,89 @@ namespace ded4newba.Src.Character
         public Dictionary<Advantage, string> Advantages = [];
 
         // nenhuma, armadura leve + escudos, média, pesada==todas
-        public string ArmorProficiency = "None";
+        //public string ArmorProficiency = "None";
 
-        public List<string> WeaponProficiency = [];
+        //public List<string> WeaponProficiency = [];
+
+        public Dictionary<string, Feat> Feats = [];
+
+        public List<string> Languages = [];
 
 
-        public Character(DndClass dndClass, Race race, Background background, Dictionary<string, int> abilityscores, string name)
+        public Character
+        (
+            DndClass dndClass,
+            Race race,
+            Background background,
+            Dictionary<string, int> abilityscores,
+            string name,
+            Dictionary<string, Feat> feats
+        )
         {
             Race = race;
             DndClass = dndClass;
             Background = background;
             AbilityScores = abilityscores;
+            Feats = feats;
             Name = name;
             TotalLifePoints = DndClass.LifeDice + GetAtributeBonus("Constitution"); 
             Level = DndClass.ClassLevel;
-            ArmorClass = 10 + AbilityScores["Dexterity"];
-            Iniciative = GetAtributeBonus("Dexterity");
+            ArmorClass = 10 + GetAtributeBonus("Dexterity");
             Movement = Race.Movement;
             SavingThrows = DndClass.SavingThrows;
             SetProfiencyBonus();
             SetAllSkills();
             SetProficientSkills();
             SetPassiveHabilities();
+            SetFeats();
+            SetAdvantages();
+            SetInitiative();
+            SetLanguages();
+        }
+
+        public void SetAdvantages(){
+            foreach (var advantage in Race.Advantages)
+            {
+                Advantages.Add(advantage.Key, advantage.Value);
+            }
+            
+        }
+
+        public void SetInitiative(){
+            Initiative += GetAtributeBonus("Dexterity");
+            if (Feats.TryGetValue("Alert", out Feat value))
+            {
+                Initiative += value.Initiative;
+            }
+        }
+
+        public void SetLanguages(){
+            Languages.AddRange(Background.Languages);
+            Languages.AddRange(Race.Languages);
+            if (Feats.TryGetValue("Linguist", out Feat value))
+            {
+                Languages.AddRange(value.Languages);
+            }
+        }
+
+        public void SetFeats(){
+            foreach (var feat in Feats)
+            {
+                PassiveHabilities.Add(
+                    feat.Value.PassiveHability
+                );
+
+                if (feat.Value.AttributeBonus.Attribute != "")
+                {
+                    AbilityScores[feat.Value.AttributeBonus.Attribute] += feat.Value.AttributeBonus.Number;
+                }
+
+                foreach (var advantage in feat.Value.Advantages)
+                {
+                    Advantages.Add(advantage.Key, advantage.Value);
+                }
+
+            }
         }
 
         public void SetAllSkills(){
@@ -79,13 +140,16 @@ namespace ded4newba.Src.Character
             try
             {   // lê o arquivo
                 var file = File.ReadAllLines("./src/Character/AllSkills.txt");
-                Skill skill = new("","",false, false);
+               
+                
                 foreach (var line in file)
                 {   // para cada linha divide a linha em 2 partes,
                     // nome, atributo
                     var split = line.Split('=');
-                    skill.Name = split[0];
-                    skill.Attribute = split[1];
+                    Skill skill = new(split[0],split[1],false, false)
+                    {
+                        totalbonus = GetAtributeBonus(split[1])
+                    };
                     Skills.Add(skill.Name,skill);
                 }
             }
@@ -96,25 +160,21 @@ namespace ded4newba.Src.Character
         }
 
         public void SetPassiveHabilities(){
-            foreach (var hability in Background.PassiveHabilities)
-            {
-                PassiveHabilities.Add(hability.Key, hability.Value);
-            }
-
-            // foreach (var hability in DndClass.PassiveHabilities)
-            // {
-            //     PassiveHabilities.Add(hability.Key, hability.Value);
-            // }            
+            PassiveHabilities.AddRange(Background.PassiveHabilities);
+            PassiveHabilities.AddRange(Race.PassiveHabilities);
+            // class PassiveHabilities.AddRange(Background.PassiveHabilities);
         }
 
         public void SetProficientSkills(){
             foreach (var skill in Background.KnownSkills)
             {
+                skill.totalbonus += ProficiencyBonus + GetAtributeBonus(skill.Attribute);
                 Skills[skill.Name] = skill;
             }
 
             foreach (var skill in DndClass.KnownSkills)
             {
+                skill.totalbonus += ProficiencyBonus;
                 Skills[skill.Name] = skill;
             }
         }
@@ -124,7 +184,7 @@ namespace ded4newba.Src.Character
         }
 
         public void SetProfiencyBonus(){
-            ProficiencyBonus = (Level / 4) switch
+            ProficiencyBonus = (Level / 4.0) switch
             {
                 <= 1 => 2, // lvl 1-4 => +2
                 <= 2 => 3, // lvl 5-8 => +3
