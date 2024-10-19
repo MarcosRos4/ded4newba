@@ -1,5 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-using ded4newba.src.Backgrounds;
+﻿using ded4newba.src.Backgrounds;
 using ded4newba.src.DnDClasses;
 using ded4newba.Src.Character;
 using ded4newba.Src.Races;

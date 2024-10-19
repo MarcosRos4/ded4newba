@@ -10,7 +10,6 @@ namespace ded4newba.src.Races.Hafling
             "You have advantage on saving throws against poison, and you have resistance against poison damage."
         );
 
-
         readonly Advantage advantage = new(
             "Stout Resistance",
             "Constitution",

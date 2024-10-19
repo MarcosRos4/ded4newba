@@ -2,12 +2,12 @@ using ded4newba.Src.DnDClasses;
 using ded4newba.Src.Races;
 using ded4newba.Src.Backgrounds;
 using ded4newba.src.Habilities;
-using System.ComponentModel;
 
 namespace ded4newba.Src.Character
 {
     public class Character
     {
+        readonly Random Roll = new();
         public string Name { get; set; }
 
         public int Level { get; set; }
@@ -35,6 +35,7 @@ namespace ded4newba.Src.Character
 
         public List<string> SavingThrows = [];
 
+        // <Nome da Skill, Skill>
         public Dictionary<string, Skill> Skills = [];
 
         public Dictionary<string, string> AllSkills = [];
@@ -48,7 +49,11 @@ namespace ded4newba.Src.Character
         // utilizada tanto nas rolagens de save quanto de pericia
         public Dictionary<Advantage, string> Advantages = [];
 
-        readonly Random Roll = new();
+        // nenhuma, armadura leve + escudos, média, pesada==todas
+        public string ArmorProficiency = "None";
+
+        public List<string> WeaponProficiency = [];
+
 
         public Character(DndClass dndClass, Race race, Background background, Dictionary<string, int> abilityscores, string name)
         {
@@ -57,15 +62,11 @@ namespace ded4newba.Src.Character
             Background = background;
             AbilityScores = abilityscores;
             Name = name;
-            TotalLifePoints =
-                DndClass.LifeDice +
-                GetAtributeBonus("Constitution") +
-                (DndClass.LifeDice / 2 + 1 + GetAtributeBonus("Constitution")) * (DndClass.ClassLevel - 1) ;
+            TotalLifePoints = DndClass.LifeDice + GetAtributeBonus("Constitution"); 
             Level = DndClass.ClassLevel;
             ArmorClass = 10 + AbilityScores["Dexterity"];
             Iniciative = GetAtributeBonus("Dexterity");
             Movement = Race.Movement;
-            CurrentLifePoints = TotalLifePoints;
             SavingThrows = DndClass.SavingThrows;
             SetProfiencyBonus();
             SetAllSkills();
