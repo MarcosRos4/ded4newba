@@ -7,7 +7,7 @@ namespace ded4newba.src.Races.Elf
             
             BonusAtributes.Add("Intelligence", 1);
 
-            Languages.Add(language); // TODO escolher qual idioma
+            Languages.Add(language); 
 
             // proeficiencia de item
             // Elf Weapon Training. You have proficiency with 

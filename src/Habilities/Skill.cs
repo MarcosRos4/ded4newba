@@ -7,7 +7,7 @@ namespace ded4newba.src.Habilities
         public bool Proficient { get; set; } = proficient;
         public bool SuperProficient { get; set; } = superproficient;
 
-        public int totalbonus = 0;
+        public int Totalbonus { get; set; } = 0;
 
         
 

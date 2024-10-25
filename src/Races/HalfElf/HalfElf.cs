@@ -5,21 +5,6 @@ namespace ded4newba.src.Races.HalfElf
 {
     public class HalfElf : Race
     {
-        readonly Advantage ADVfeyancestry = new(
-            "Fey Ancestry",
-            "Wisdom",
-            "Charmed",
-            "You have advantage on saving throws against being "+
-            "charmed, and magic can't put you to sleep."
-        );
-        
-        readonly Imunity IMUsleep = new(
-            "Fey Ancestry",
-            "Sleep",
-            "You have advantage on saving throws against being "+
-            "charmed, and magic can't put you to sleep."
-        );
-
         public HalfElf(string language, string atribute1, string atribute2){
 
             BonusAtributes.Add("Charisma", 2);
@@ -28,9 +13,20 @@ namespace ded4newba.src.Races.HalfElf
 
             DarkVision = true;
 
-            Imunities.Add(IMUsleep);
+            Imunities.Add(new(
+            "Fey Ancestry",
+            "Sleep",
+            "You have advantage on saving throws against being "+
+            "charmed, and magic can't put you to sleep."
+            ));
 
-            Advantages.Add(ADVfeyancestry, "Charmed");
+            Advantages.Add(new(
+            "Fey Ancestry",
+            "Wisdom",
+            "Charmed",
+            "You have advantage on saving throws against being "+
+            "charmed, and magic can't put you to sleep."
+            ));
 
             Languages.Add("Common");
             Languages.Add("Elvish");

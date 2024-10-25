@@ -4,6 +4,8 @@ using ded4newba.Src.Backgrounds;
 using ded4newba.src.Habilities;
 using ded4newba.src.Habilities.Feats;
 using ded4newba.Src.Habilities;
+using System.Text.Json;
+using ded4newba.src.Data;
 
 namespace ded4newba.Src.Character
 {
@@ -16,15 +18,15 @@ namespace ded4newba.Src.Character
 
         public int ProficiencyBonus { get; set; }
 
-        public Race Race = new();
+        public Race Race { get; set; } = new();
 
-        public DndClass DndClass = new();
+        public DndClass DndClass { get; set; } = new();
     
-        public Background Background = new();
+        public Background Background { get; set; } = new();
 
-        public int TotalLifePoints;
+        public int TotalLifePoints { get; set; } 
 
-        public List<int> LifePointsProgression = [];
+        public List<int> LifePointsProgression { get; set; } = [];
 
         public int CurrentLifePoints { get; set; }
 
@@ -32,33 +34,33 @@ namespace ded4newba.Src.Character
 
         public int Initiative { get; set; } = 0;
 
-        public int Movement { get; set; }
+        public int Movement { get; set; } = 0;
 
-        public Dictionary<string, int> AbilityScores = [];
+        public Dictionary<string, int> AbilityScores { get; set; } = [];
         // Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma
 
-        public List<string> SavingThrows = [];
+        public List<string> SavingThrows { get; set; } = [];
 
         // <Nome da Skill, Skill>
-        public Dictionary<string, Skill> Skills = [];
+        public List<Skill> Skills { get; set; } =  new JsonDataBase().ReadAllSkills();
 
-        public List<PassiveHability> PassiveHabilities = [];
+        public List<PassiveHability> PassiveHabilities { get; set; } = [];
 
-        public List<string> Resistances = [];
+        public List<string> Resistances { get; set; } = [];
         
         // a string pode ser dois tipos de info: efeito (poisoned, etc) ou
         // o nome de perícia a qual a vantagem se aplica, isso pra poder ser
         // utilizada tanto nas rolagens de save quanto de pericia
-        public Dictionary<Advantage, string> Advantages = [];
+        public List<Advantage> Advantages = [];
 
         // nenhuma, armadura leve + escudos, média, pesada==todas
         //public string ArmorProficiency = "None";
 
         //public List<string> WeaponProficiency = [];
 
-        public Dictionary<string, Feat> Feats = [];
+        public List<Feat> Feats { get; set; } = [];
 
-        public List<string> Languages = [];
+        public List<string> Languages { get; set; } = [];
 
 
         public Character
@@ -68,7 +70,7 @@ namespace ded4newba.Src.Character
             Background background,
             Dictionary<string, int> abilityscores,
             string name,
-            Dictionary<string, Feat> feats,
+            List<Feat> feats,
             bool luck
         )
         {
@@ -82,7 +84,6 @@ namespace ded4newba.Src.Character
             Level = DndClass.ClassLevel;
             ArmorClass = 10 + GetAtributeBonus("Dexterity");
             Movement = Race.Movement;
-            SavingThrows = DndClass.SavingThrows;
             SetProfiencyBonus();
             SetAllSkills();
             SetProficientSkills();
@@ -92,7 +93,16 @@ namespace ded4newba.Src.Character
             SetInitiative();
             SetLanguages();
             SetTotalLifePoints(luck);
+            SetSavingThrows();
         }
+        public void SetSavingThrows(){
+            SavingThrows = DndClass.SavingThrows;
+            if (Feats.FindIndex(feat => feat.Name == "Resilient") != -1)
+            {
+                SavingThrows.Add(Feats.Find(feat => feat.Name == "Resilient").AttributeBonus.Attribute);
+            }
+        }
+        
         public void SetTotalLifePoints(bool luck){
             
             if (luck)
@@ -113,77 +123,55 @@ namespace ded4newba.Src.Character
                     TotalLifePoints += DndClass.LifeDice / 2 + 1 + GetAtributeBonus("Constitution");
                 }
             }
-            if (Feats.TryGetValue("Tough", out Feat value))
+            if (Feats.FindIndex(feat => feat.Name == "Tough") != -1)
             {
                 TotalLifePoints += 2 * Level;
+            }
+
+            if (Feats.FindIndex(feat => feat.Name == "Dwarven Toughness") != -1)
+            { 
+                TotalLifePoints += Level;
             }
         }
         public void SetAdvantages(){
             foreach (var advantage in Race.Advantages)
             {
-                Advantages.Add(advantage.Key, advantage.Value);
+                Advantages.Add(advantage);
             }
             
         }
-
         public void SetInitiative(){
             Initiative += GetAtributeBonus("Dexterity");
-            if (Feats.TryGetValue("Alert", out Feat value))
+            if (Feats.FindIndex(feat => feat.Name == "Alert") != -1)
             {
-                Initiative += value.Initiative;
+                Initiative += 5;
             }
         }
 
         public void SetLanguages(){
             Languages.AddRange(Background.Languages);
             Languages.AddRange(Race.Languages);
-            if (Feats.TryGetValue("Linguist", out Feat value))
+            if (Feats.FindIndex(feat => feat.Name == "Linguist") != -1)
             {
-                Languages.AddRange(value.Languages);
+                Languages.AddRange(Feats.Find(feat => feat.Name == "Linguist").Languages);
             }
         }
 
         public void SetFeats(){
+            
             foreach (var feat in Feats)
             {
                 PassiveHabilities.Add(
-                    feat.Value.PassiveHability
+                    feat.PassiveHability
                 );
 
-                if (feat.Value.AttributeBonus.Attribute != "")
+                if (feat.AttributeBonus.Attribute != "")
                 {
-                    AbilityScores[feat.Value.AttributeBonus.Attribute] += feat.Value.AttributeBonus.Number;
+                    AbilityScores[feat.AttributeBonus.Attribute] += feat.AttributeBonus.Number;
                 }
 
-                foreach (var advantage in feat.Value.Advantages)
-                {
-                    Advantages.Add(advantage.Key, advantage.Value);
-                }
+                Advantages.AddRange(feat.Advantages);
 
-            }
-        }
-
-        public void SetAllSkills(){
-            
-            try
-            {   // lê o arquivo
-                var file = File.ReadAllLines("./src/Character/AllSkills.txt");
-               
-                
-                foreach (var line in file)
-                {   // para cada linha divide a linha em 2 partes,
-                    // nome, atributo
-                    var split = line.Split('=');
-                    Skill skill = new(split[0],split[1],false, false)
-                    {
-                        totalbonus = GetAtributeBonus(split[1])
-                    };
-                    Skills.Add(skill.Name,skill);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Erro ao ler o arquivo: {ex.Message}");
             }
         }
 
@@ -193,17 +181,36 @@ namespace ded4newba.Src.Character
             // class PassiveHabilities.AddRange(Background.PassiveHabilities);
         }
 
-        public void SetProficientSkills(){
-            foreach (var skill in Background.KnownSkills)
+        public void SetAllSkills(){
+            
+            try
             {
-                skill.totalbonus += ProficiencyBonus + GetAtributeBonus(skill.Attribute);
-                Skills[skill.Name] = skill;
+                foreach (Skill skill in Skills)
+                {  
+                    skill.Totalbonus = GetAtributeBonus(skill.Attribute);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao ler o arquivo: {ex.Message}");
+            }
+        }
+
+        public void SetProficientSkills(){
+            foreach (var backgroundSkill in Background.KnownSkills)
+            {
+                var skill = Skills.Find(skill => skill.Name == backgroundSkill.Name);
+                skill.Totalbonus += ProficiencyBonus;
+
+                skill.Totalbonus += backgroundSkill.SuperProficient ? ProficiencyBonus : 0;
             }
 
-            foreach (var skill in DndClass.KnownSkills)
+            foreach (var classSkill in DndClass.KnownSkills)
             {
-                skill.totalbonus += ProficiencyBonus;
-                Skills[skill.Name] = skill;
+               var skill = Skills.Find(skill => skill.Name == classSkill.Name);
+                skill.Totalbonus += ProficiencyBonus;
+
+                skill.Totalbonus += classSkill.SuperProficient ? ProficiencyBonus : 0;
             }
         }
 
@@ -232,8 +239,8 @@ namespace ded4newba.Src.Character
             firstRoll += GetAtributeBonus(score); secondRoll += GetAtributeBonus(score); 
             
             // se tem vantagem escolhe o maior valor
-            foreach (var advantage in Advantages) // checa o valor do item, que sempre é um efeito (poisoned,etc)
-            if(advantage.Value == condition)
+            // checa o valor do item, que sempre é um efeito (poisoned,etc)
+            if(Advantages.FindIndex(item => item.Effectname == condition) != -1)
             return Math.Max(firstRoll, secondRoll);
             
             return firstRoll;
@@ -253,25 +260,25 @@ namespace ded4newba.Src.Character
 
             foreach (var item in Skills) // percorre todas as pericias
             {
-                if (item.Value.Proficient) // se for proficiente adiciona bonus de proficiencia
+                if (item.Proficient) // se for proficiente adiciona bonus de proficiencia
                 {
-                    firstRoll += ProficiencyBonus + GetAtributeBonus(item.Value.Attribute);    
-                    secondRoll += ProficiencyBonus + GetAtributeBonus(item.Value.Attribute);
+                    firstRoll += ProficiencyBonus + GetAtributeBonus(item.Attribute);    
+                    secondRoll += ProficiencyBonus + GetAtributeBonus(item.Attribute);
 
-                    if (item.Value.SuperProficient) // se for super-proficiente adiciona 2 * bonus de proficiencia
-                        firstRoll += ProficiencyBonus + GetAtributeBonus(item.Value.Attribute);    
-                        secondRoll += ProficiencyBonus + GetAtributeBonus(item.Value.Attribute);  
+                    if (item.SuperProficient) // se for super-proficiente adiciona 2 * bonus de proficiencia
+                        firstRoll += ProficiencyBonus + GetAtributeBonus(item.Attribute);    
+                        secondRoll += ProficiencyBonus + GetAtributeBonus(item.Attribute);  
                 }
                 else
                 { // se nao só adiciona o bonus de atributo
-                    firstRoll += GetAtributeBonus(item.Value.Attribute);    
-                    secondRoll += GetAtributeBonus(item.Value.Attribute); 
+                    firstRoll += GetAtributeBonus(item.Attribute);    
+                    secondRoll += GetAtributeBonus(item.Attribute); 
                 }
             }
 
             // se houver vantagem ele pega o maior valor, se nao retorna o primeiro
-            foreach (var advantage in Advantages)
-            if(advantage.Value == skill)
+            
+            if(Advantages.FindIndex(item => item.Effectname == skill) != -1)
             return Math.Max(firstRoll, secondRoll);
             
             return firstRoll;

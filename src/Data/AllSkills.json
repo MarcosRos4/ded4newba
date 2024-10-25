@@ -1,0 +1,199 @@
+[
+      {
+      "Name": "Athletics",
+      "Attribute": "Strength",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Acrobatics",
+      "Attribute": "Dexterity",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Control Land Vehicle",
+      "Attribute": "Dexterity",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Sleight of Hand",
+      "Attribute": "Dexterity",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Stealth",
+      "Attribute": "Dexterity",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Arcana",
+      "Attribute": "Intelligence",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "History",
+      "Attribute": "Intelligence",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Investigation",
+      "Attribute": "Intelligence",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Nature",
+      "Attribute": "Intelligence",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Religion",
+      "Attribute": "Intelligence",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Animal Handling",
+      "Attribute": "Wisdom",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Insight",
+      "Attribute": "Wisdom",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Medicine",
+      "Attribute": "Wisdom",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Perception",
+      "Attribute": "Wisdom",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Survival",
+      "Attribute": "Wisdom",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Deception",
+      "Attribute": "Charisma",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Intimidation",
+      "Attribute": "Charisma",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Performance",
+      "Attribute": "Charisma",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Persuasion",
+      "Attribute": "Charisma",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Disguise",
+      "Attribute": "Charisma",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Forgery",
+      "Attribute": "Dexterity",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Disarm Trap",
+      "Attribute": "Dexterity",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Open Lock",
+      "Attribute": "Dexterity",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Stonecunning",
+      "Attribute": "Intelligence",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Navigator's Tools",
+      "Attribute": "Wisdom",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Artificer's Lore",
+      "Attribute": "Intelligence",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Artisan's Tools",
+      "Attribute": "Dexterity",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    },
+    {
+      "Name": "Control Aquatic Vehicle",
+      "Attribute": "Dexterity",
+      "Proficient": false,
+      "SuperProficient": false,
+      "Totalbonus": 0
+    }
+]
+

@@ -1,0 +1,506 @@
+[
+    {   
+        "Name":"Acolyte",
+        "KnownSkills": [
+            {
+                "Name": "Insight",
+                "Attribute": "Wisdom",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Religion",
+                "Attribute": "Intelligence",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            }
+        ],
+        "Languages": [
+            "",
+            ""
+        ],
+        "PassiveHabilities": [
+            {
+                "Name": "Shelter of the Faithful",
+                "Description": "As an acolyte, you command the respect of those who share your faith, and you can perform the religious ceremonies of your deity. You and your adventuring companions can expect to receive free healing and care at a temple, shrine, or other established presence of your faith, though you must provide any material components needed for spells. Those who share your religion will support you (but only you) at a modest lifestyle. \nYou might also have ties to a specific temple dedicated to your chosen deity or pantheon, and you have a residence there. This could be the temple where you used to serve, if you remain on good terms with it, or a temple where you have found a new home. While near your temple, you can call upon the priests for assistance, provided the assistance you ask for is not hazardous and you remain in good standing with your temple."
+            }
+        ]
+    },
+    {
+        "Name":"Charlatan",
+        "KnownSkills": [
+            {
+                "Name": "Prestidigitation",
+                "Attribute": "Dexterity",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Deception",
+                "Attribute": "Charisma",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Disguise",
+                "Attribute": "Charisma",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Forgery",
+                "Attribute": "Dexterity",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            }
+        ],
+        "Languages": [],
+        "PassiveHabilities": [
+            {
+                "Name": "Disguise Kit",
+                "Description": "This pouch of cosmetics, hair dye, and small props lets you create disguises that change your physical appearance. Proficiency with this kit lets you add your proficiency bonus to any ability checks you make to create a visual disguise."
+            },
+            {
+                "Name": "Forgery Kit",
+                "Description": "This small box contains a variety of papers and parchments, pens and inks, seals and sealing wax, gold and silver leaf, and other supplies necessary to create convincing forgeries of physical documents. Proficiency with this kit lets you add your proficiency bonus to any ability checks you make to create a physical forgery of a document."
+            },
+            {
+                "Name": "False Identity",
+                "Description": "You have created a second identity that includes documentation, established acquaintances, and disguises that allow you to assume this persona. Additionally, you can forge documents, including official papers and personal letters, as long as you have seen an example of the kind of document or the handwriting you are trying to copy."
+            }
+        ]
+    },
+    {
+        "Name":"Criminal",
+        "KnownSkills": [
+            {
+                "Name": "Deception",
+                "Attribute": "Charisma",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Stealth",
+                "Attribute": "Dexterity",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Disarm Trap",
+                "Attribute": "Dexterity",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Open Lock",
+                "Attribute": "Dexterity",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            }
+        ],
+        "Languages": [],
+        "PassiveHabilities": [
+            {
+                "Name": "Thieves' Tools",
+                "Description": "This set of tools includes a small file, a set of lock picks, a small mirror mounted on a metal handle, a set of narrow-bladed scissors, and a pair of pliers. Proficiency with these tools lets you add your proficiency bonus to any ability checks you make to disarm traps or open locks."
+            },
+            {
+                "Name": "Criminal Contact",
+                "Description": "You have a reliable and trustworthy contact who acts as your liaison to a network of other criminals. You know how to get messages to and from your contact, even over great distances; specifically, you know the local messengers, corrupt caravan masters, and seedy sailors who can deliver messages for you."
+            }
+        ]
+    },
+    {
+        "Name":"Entertainer",
+        "KnownSkills": [
+            {
+                "Name": "Acrobatics",
+                "Attribute": "Dexterity",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Performance",
+                "Attribute": "Charisma",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Disguise",
+                "Attribute": "Charisma",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            }
+        ],
+        "Languages": [],
+        "PassiveHabilities": [
+            {
+                "Name": "Disguise Kit",
+                "Description": "This pouch of cosmetics, hair dye, and small props lets you create disguises that change your physical appearance. Proficiency with this kit lets you add your proficiency bonus to any ability checks you make to create a visual disguise."
+            },
+            {
+                "Name": "Musical Instrument",
+                "Description": "If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use bagpipes as a spellcasting focus."
+            },
+            {
+                "Name": "By Popular Demand",
+                "Description": "You always find a place to perform, usually in taverns or inns, but possibly in circuses, theaters, or even noble courts. In such places, you receive lodging and modest or comfortable food for free (depending on the quality of the establishment) as long as you perform each night. Additionally, your performance makes you a kind of local figure. When strangers recognize you in a city where you have performed, they generally like you."
+            }
+        ]
+    },
+    {
+        "Name":"Folk Hero",
+        "KnownSkills": [
+            {
+                "Name": "Artisan's Tools",
+                "Attribute": "Dexterity",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Controll Land Vehicle",
+                "Attribute": "Dexterity",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Survival",
+                "Attribute": "Wisdom",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Animal Handling",
+                "Attribute": "Wisdom",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            }
+        ],
+        "Languages": [],
+        "PassiveHabilities": [
+            {
+                "Name": "Rustic Hospitality",
+                "Description": "Since you come from the ranks of the common folk, you fit in among them with ease. You can find a place to hide, rest, or recuperate among other commoners, unless you have shown yourself to be a danger to them. They will shield you from the law or anyone else searching for you, though they will not risk their lives for you."
+            }
+        ]
+    },
+    {
+        "Name":"Guild Artisan",
+        "KnownSkills": [
+            {
+                "Name": "Insight",
+                "Attribute": "Wisdom",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Persuasion",
+                "Attribute": "Charisma",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Artisan's Tools",
+                "Attribute": "Dexterity",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            }
+        ],
+        "Languages": [
+            ""
+        ],
+        "PassiveHabilities": [
+            {
+                "Name": "Guild Associate",
+                "Description": "As a captive and respected member of the guild, you can count on certain benefits guaranteed by the society. Your comrades, guild members, will provide you with lodging and food if necessary, and will pay for your funeral if need be. In some cities and villages, a guild hall offers a central place to meet other professionals, which can be a good place to meet employers, allies, and potential employees. Guilds often hold tremendous political power. If you are accused of a crime, your guild will support you if a good defense can be presented to prove your innocence or if the crime is justifiable. You can also gain access to powerful political figures through the guild, if you are a well-positioned member. Such connections may require donations of money or magical items to the guild's coffers. You must pay dues of 5 gp per month to the guild. If you fail to pay, you will incur a debt to remain in the guild's good graces."
+            }
+        ]
+    },
+    {
+        "Name":"Hermit",
+        "KnownSkills": [
+            {
+                "Name": "Nature",
+                "Attribute": "Intelligence",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Religion",
+                "Attribute": "Intelligence",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Medicine",
+                "Attribute": "Wisdom",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            }
+        ],
+        "Languages": [
+            ""
+        ],
+        "PassiveHabilities": [
+            {
+                "Name": "Herbalism Kit",
+                "Description": "This kit contains a variety of instruments such as clippers, mortar and pestle, and pouches and vials used by herbalists to create remedies and potions. Proficiency with this kit lets you add your proficiency bonus to any ability checks you make to identify or apply herbs. Also, proficiency with this kit is required to create antitoxin and any potion of healing."
+            },
+            {
+                "Name": "Discobery",
+                "Description": "The quiet seclusion of your extended hermitage gave you access to unique and powerful discoveries. The exact nature of these revelations depends on the nature of your seclusion. It could be a great truth about the cosmos, the gods, the powerful beings of other planes, or the forces of nature. It might be a site that no one else has ever seen. You may have unearthed a long-forgotten fact or discovered a relic from the past that could rewrite history. It could be information detrimental to those responsible for your exile, hence the reason you returned to society. Discuss with the Dungeon Master to determine the details of your discovery and its impact on the campaign."
+            }
+        ]
+    },
+    {
+        "Name":"Noble",
+        "KnownSkills": [
+            {
+                "Name": "History",
+                "Attribute": "Intelligence",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Persuasion",
+                "Attribute": "Charisma",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            }
+        ],
+        "Languages": [
+            ""
+        ],
+        "PassiveHabilities": [
+            {
+                "Name": "Position of Privilege",
+                "Description": "Thanks to your noble birth, people are inclined to think the best of you. You are welcome in high society, and people assume you have the right to be wherever you are. The common folk make every effort to accommodate you and avoid your displeasure, and other people of high birth treat you as a member of the same social sphere. You can secure an audience with a local noble if you need to."
+            }
+        ]
+    },
+    {
+        "Name":"Outlander",
+        "KnownSkills": [
+            {
+                "Name": "Performance",
+                "Attribute": "Charisma",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Athletics",
+                "Attribute": "Strength",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Survival",
+                "Attribute": "Wisdom",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            }
+        ],
+        "Languages": [
+            ""
+        ],
+        "PassiveHabilities": [
+            {
+                "Name": "Musical Instrument",
+                "Description": "If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use bagpipes as a spellcasting focus."
+            },
+            {
+                "Name": "Wanderer",
+                "Description": "You have an excellent memory for maps and geography, and you can always recall the general layout of terrain, settlements, or other features around you. Additionally, you can find food and fresh water for yourself and up to five other people each day, provided that the land offers berries, small fruits, water, and the like."
+            }
+        ]
+    },
+    {
+        "Name":"Sage",
+        "KnownSkills": [
+            {
+                "Name": "Arcana",
+                "Attribute": "Intelligence",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "History",
+                "Attribute": "Intelligence",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            }
+        ],
+        "Languages": [
+            "players choice",
+            "players choice"
+        ],
+        "PassiveHabilities": [
+            {
+                "Name": "Researcher",
+                "Description": "When you attempt to learn or recall a piece of lore, if you do not know that information, you often know where and from whom you can obtain it. Usually, this information comes from a library, scriptorium, university, or a sage or other learned person or creature. Your DM might rule that the knowledge you seek is secreted away in an almost inaccessible place, or that it simply cannot be found. Unearthing the deepest secrets of the multiverse can require an adventure or even a whole campaign."
+            }
+        ]
+    },
+    {
+        "Name":"Sailor",
+        "KnownSkills": [
+            {
+                "Name": "Control Aquatic Vehicle",
+                "Attribute": "Dexterity",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Navigator's Tools",
+                "Attribute": "Wisdom",
+                "Proficient": true,
+                "SuperProficient": true,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Arcana",
+                "Attribute": "Intelligence",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Arcana",
+                "Attribute": "Intelligence",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            }
+        ],
+        "Languages": [],
+        "PassiveHabilities": [
+            {
+                "Name": "Navigator's Tools",
+                "Description": "If you have proficiency with a tool, add your Proficiency Bonus to any ability check you make that uses the tool. If you have proficiency in a skill that's used with that check, you have Advantage on the check too."
+            },
+            {
+                "Name": "Ship Ticket",
+                "Description": "Whenever you need, you can secure free passage on a ship for yourself and your adventuring companions. You must travel on a ship you have worked on or one with which you have good relations (perhaps one commanded by a former crew member). Since it is a favor, you cannot request a schedule or route that caters to all your needs. Your Dungeon Master determines how long it will take to get to your destination. In exchange for free passage, you and your companions are expected to assist the crew during the voyage."
+            }
+        ]
+    },
+    {
+        "Name":"Soldier",
+        "KnownSkills": [
+            {
+                "Name": "Control Land Vehicle",
+                "Attribute": "Dexterity",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Intimidation",
+                "Attribute": "Charisma",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Athletics",
+                "Attribute": "Strength",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            }
+        ],
+        "Languages": [],
+        "PassiveHabilities": [
+            {
+                "Name": "Military Rank",
+                "Description": "You have a military rank from your career as a soldier. Soldiers loyal to your former military organization still recognize your authority and influence, and they defer to you if they are of a lower rank. You can invoke your rank to exert influence over other soldiers and requisition simple equipment or horses for temporary use. You can also usually gain access to friendly military encampments and fortresses where your rank is recognized."
+            }
+        ]
+    },
+    {
+        "Name":"Urchin",
+        "KnownSkills": [
+            {
+                "Name": "Stealth",
+                "Attribute": "Dexterity",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Prestidigitation",
+                "Attribute": "Dexterity",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Disguise",
+                "Attribute": "Charisma",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Disarm Traps",
+                "Attribute": "Dexterity",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Open Locks",
+                "Attribute": "Dexterity",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            }
+        ],
+        "Languages": [],
+        "PassiveHabilities": [
+            {
+                "Name": "Disguise Kit",
+                "Description": "This pouch of cosmetics, hair dye, and small props lets you create disguises that change your physical appearance. Proficiency with this kit lets you add your proficiency bonus to any ability checks you make to create a visual disguise."
+            },
+            {
+                "Name": "Thieves' Tools",
+                "Description": "This set of tools includes a small file, a set of lock picks, a small mirror mounted on a metal handle, a set of narrow-bladed scissors, and a pair of pliers. Proficiency with these tools lets you add your proficiency bonus to any ability checks you make to disarm traps or open locks."
+            },
+            {
+                "Name": "City Secrets",
+                "Description": "You know the secret patterns and flow of the cities and can find pathways through the urban sprawl that others would miss. When you are not in combat, you (and the companions you lead) can travel between any two locations in the city at twice the normal speed."
+            }
+        ]
+    }
+]

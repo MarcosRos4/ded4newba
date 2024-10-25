@@ -63,7 +63,7 @@ namespace ded4newba.src.Races.Dwarf
             PassiveHabilities.Add(stonecunning);
             PassiveHabilities.Add(dwarvenresilience);
 
-            Advantages.Add(ADVdwarvenresilience, "Poisoned");
+            Advantages.Add(ADVdwarvenresilience);
 
             Resistances.Add("Poison");
 

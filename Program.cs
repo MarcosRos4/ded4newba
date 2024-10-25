@@ -1,19 +1,18 @@
-﻿using ded4newba.src.Backgrounds.Sage;
+﻿using ded4newba.src.Data;
 using ded4newba.src.DnDClasses;
-using ded4newba.src.Habilities.Feats;
-using ded4newba.src.Races.Gnome;
+using ded4newba.src.Habilities;
 using ded4newba.Src.Backgrounds;
 using ded4newba.Src.Character;
 using ded4newba.Src.Races;
 
+
+
 Bard bard = new();
-Race gnome = new RockGnome();
-Background sage = new Sage("Celestial", "Infernal");
-Feat keenMind = new KeenMind();
-Feat linguist = new Linguist("Abissal", "Dwarvish", "Elvish");
-Feat alert = new Alert();
-Feat actor =  new Actor();
-Feat tough =  new Tough();
+Race gnome = new JsonDataBase().GetRaceByName("Rock Gnome");
+Background sage = new JsonDataBase().GetBackgroundByName("Sage");
+sage.Languages = ["Celestial", "Abyssal"];
+Feat linguist = new JsonDataBase().GetFeatByName("Linguist");
+linguist.Languages = ["Dwarvish", "Elvish", "Hafling"];
 Character shmeb = new(
     bard,
     gnome,
@@ -22,19 +21,13 @@ Character shmeb = new(
     {
         {"Strength", 18},
         {"Dexterity", 15},
-        {"Constitution", 15},        
-        {"Intelligence", 15},        
-        {"Wisdom", 15},        
+        {"Constitution", 15},
+        {"Intelligence", 15},
+        {"Wisdom", 15},
         {"Charisma", 12},
     },
     "Shmeb",
-    new Dictionary<string, Feat> {
-            {"Keen Mind", keenMind},
-            {"Linguist", linguist},
-            {"Alert", alert},
-            {"Actor", actor},
-            {"Tough", tough}
-        },
+    [linguist],
     false
     );
 
@@ -44,7 +37,7 @@ foreach (var item in shmeb.LifePointsProgression)
     Console.Write($"{item}, ");
 }
 Console.WriteLine($"\nNível: {shmeb.Level}");
-Console.WriteLine($"Meu nome é: {shmeb.Name}");
+Console.WriteLine($"Meu nome é: {shmeb.Name}! Sou um {shmeb.Race.Name}");
 Console.WriteLine($"Iniciativa: {shmeb.Initiative}");
 shmeb.RollAtack("Strength");
 Console.WriteLine($"");
@@ -61,8 +54,8 @@ foreach (var item in shmeb.SavingThrows)
 Console.WriteLine("\nPerícias:");
 foreach (var item in shmeb.Skills)
 {
-    Console.WriteLine($"{item.Key}, Proficiente: {(item.Value.Proficient ? "Sim" : "Não")}, "+
-    $"Bonus: {item.Value.totalbonus}");
+    Console.WriteLine($"{item.Name}, Proficiente: {(item.Proficient ? "Sim" : "Não")}, " +
+    $"Bonus: {item.Totalbonus}");
 }
 
 Console.WriteLine("\nIdiomas Conhecidos:");
@@ -73,7 +66,7 @@ foreach (var item in shmeb.Languages)
 Console.WriteLine("\nVantagem em: ");
 foreach (var item in shmeb.Advantages)
 {
-    Console.WriteLine($"{item.Value}");
+    Console.WriteLine($"{item.Effectname}");
 }
 Console.WriteLine("\nPassivas: ");
 

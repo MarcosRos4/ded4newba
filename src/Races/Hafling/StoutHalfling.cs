@@ -21,7 +21,7 @@ namespace ded4newba.src.Races.Hafling
 
             BonusAtributes.Add("Constitution", 1);
 
-            Advantages.Add(advantage, "Poisoned");
+            Advantages.Add(advantage);
 
             PassiveHabilities.Add(resistance);
 

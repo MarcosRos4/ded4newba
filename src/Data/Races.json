@@ -1,0 +1,462 @@
+[
+    {
+        "Name": "Hill Dwarf",
+        "BonusAtributes": {
+            "Constitution": 2,
+            "Wisdom": 1
+        },
+        "Movement": 30,
+        "DarkVision": true,
+        "Languages": [
+            "Common",
+            "Dwarvish"
+        ],
+        "PassiveHabilities": [
+            {
+                "Name": "Tool Proficiency",
+                "Description": "You gain proficiency with the artisan's tools of your choice: smith's tools, brewer's supplies, or mason's tools."
+            },
+            {
+                "Name": "Stonecunning",
+                "Description": "Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus."
+            },
+            {
+                "Name": "Dwarven Resilience",
+                "Description": "You have advantage on saving throws against poison, and you have resistance against poison damage."
+            }
+        ],
+        "Resistances": [
+            "Poison"
+        ],
+        "Imunities": [],
+        "KnownSkills": [
+            {
+                "Name": "Artisan's Tools",
+                "Attribute": "Dexterity",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Stonecunning",
+                "Attribute": "Intelligence",
+                "Proficient": true,
+                "SuperProficient": true,
+                "Totalbonus": 0
+            }
+        ],
+        "Feats": {
+            "Dwarven Toughness": {
+                "PassiveHability": {
+                    "Name": "Dwarven Toughness",
+                    "Description": "Your hit point maximum increases by 1, and it increases by 1 every time you gain a level."
+                },
+                "AttributeBonus": {
+                    "Attribute": "",
+                    "Number": 0
+                }
+            }
+        }
+    },
+    {
+        "Name": "Montain Dwarf",
+        "BonusAtributes": {
+            "Constitution": 2,
+            "Strength": 2
+        },
+        "Movement": 30,
+        "DarkVision": true,
+        "Languages": [
+            "Common",
+            "Dwarvish"
+        ],
+        "PassiveHabilities": [
+            {
+                "Name": "Tool Proficiency",
+                "Description": "You gain proficiency with the artisan's tools of your choice: smith's tools, brewer's supplies, or mason's tools."
+            },
+            {
+                "Name": "Stonecunning",
+                "Description": "Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus."
+            },
+            {
+                "Name": "Dwarven Resilience",
+                "Description": "You have advantage on saving throws against poison, and you have resistance against poison damage."
+            }
+        ],
+        "Resistances": [
+            "Poison"
+        ],
+        "Imunities": [],
+        "KnownSkills": [
+            {
+                "Name": "Artisan's Tools",
+                "Attribute": "Dexterity",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            },
+            {
+                "Name": "Stonecunning",
+                "Attribute": "Intelligence",
+                "Proficient": true,
+                "SuperProficient": true,
+                "Totalbonus": 0
+            }
+        ],
+        "Feats": {
+            
+        }
+    },
+    {
+        "Name": "Wood Elf",
+        "BonusAtributes": {
+            "Dexterity": 2,
+            "Wisdom": 1
+        },
+        "Movement": 35,
+        "DarkVision": true,
+        "Languages": [
+            "Common",
+            "Elvish"
+        ],
+        "PassiveHabilities": [
+            {
+                "Name": "Tool Proficiency",
+                "Description": "Elves don't need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is \u201Ctrance.\u201D) While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep."
+            },
+            {
+                "Name": "Mask of the Wild",
+                "Description": "You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena."
+            }
+        ],
+        "Resistances": [],
+        "Imunities": [
+            {
+                "Name": "Fey Ancestry",
+                "Effectname": "Sleep",
+                "Description": "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+            }
+        ],
+        "KnownSkills": [
+            {
+                "Name": "Perception",
+                "Attribute": "Wisdom",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            }
+        ],
+        "Feats": {}
+    },
+    {
+        "Name": "High Elf",
+        "BonusAtributes": {
+            "Dexterity": 2,
+            "Intelligence": 1
+        },
+        "Movement": 30,
+        "DarkVision": true,
+        "Languages": [
+            "Common",
+            "Elvish",
+            ""
+        ],
+        "PassiveHabilities": [
+            {
+                "Name": "Tool Proficiency",
+                "Description": "Elves don't need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is \u201Ctrance.\u201D) While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep."
+            }
+        ],
+        "Resistances": [],
+        "Imunities": [
+            {
+                "Name": "Fey Ancestry",
+                "Effectname": "Sleep",
+                "Description": "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+            }
+        ],
+        "KnownSkills": [
+            {
+                "Name": "Perception",
+                "Attribute": "Wisdom",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            }
+        ],
+        "Feats": {}
+    },
+    {
+        "Name": "Drow",
+        "BonusAtributes": {
+            "Dexterity": 2,
+            "Charisma": 1
+        },
+        "Movement": 30,
+        "DarkVision": true,
+        "Languages": [
+            "Common",
+            "Elvish"
+        ],
+        "PassiveHabilities": [
+            {
+                "Name": "Tool Proficiency",
+                "Description": "Elves don't need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is \u201Ctrance.\u201D) While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep."
+            },
+            {
+                "Name": "Superior DarkVision",
+                "Description": "Your darkvision has a radius of 120 feet."
+            }
+        ],
+        "Resistances": [],
+        "Imunities": [
+            {
+                "Name": "Fey Ancestry",
+                "Effectname": "Sleep",
+                "Description": "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+            }
+        ],
+        "KnownSkills": [
+            {
+                "Name": "Perception",
+                "Attribute": "Wisdom",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            }
+        ],
+        "Feats": {}
+    },
+    {
+        "Name": "Rock Gnome",
+        "BonusAtributes": {
+            "Intelligence": 2,
+            "Constitution": 1
+        },
+        "Movement": 25,
+        "DarkVision": true,
+        "Languages": [
+            "Common",
+            "Gnomish"
+        ],
+        "PassiveHabilities": [
+            {
+                "Name": "Artificer's Lore",
+                "Description": "Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply."
+            },
+            {
+                "Name": "Tinker",
+                "Description": "You have proficiency with artisan's tools (tinker's tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). "
+            }
+        ],
+        "Resistances": [],
+        "Imunities": [],
+        "KnownSkills": [],
+        "Feats": {}
+    },
+    {
+        "Name": "Forest Gnome",
+        "BonusAtributes": {
+            "Intelligence": 2,
+            "Dexterity": 1
+        },
+        "Movement": 25,
+        "DarkVision": true,
+        "Languages": [
+            "Common",
+            "Gnomish"
+        ],
+        "PassiveHabilities": [
+            {
+                "Name": "Speak with small beasts",
+                "Description": "Through sounds and gestures, you can communicate simple ideas with Small or smaller beasts. Forest gnomes love animals and often keep squirrels, badgers, rabbits, moles, woodpeckers, and other creatures as beloved pets."
+            }
+        ],
+        "Resistances": [],
+        "Imunities": [],
+        "KnownSkills": [],
+        "Feats": {}
+    },
+    {
+        "Name": "Stout Hafling",
+        "BonusAtributes": {
+            "Dexterity": 2,
+            "Constitution": 1
+        },
+        "Movement": 25,
+        "DarkVision": false,
+        "Languages": [
+            "Common",
+            "Halfling"
+        ],
+        "PassiveHabilities": [
+            {
+                "Name": "Halfling Nimbleness",
+                "Description": "You can move through the space of any creature that is of a size larger than yours."
+            },
+            {
+                "Name": "Stout Resistance",
+                "Description": "You have advantage on saving throws against poison, and you have resistance against poison damage."
+            }
+        ],
+        "Resistances": [
+            "Poison"
+        ],
+        "Imunities": [],
+        "KnownSkills": [],
+        "Feats": {}
+    },
+    {
+        "Name": "Lighfoot Hafling",
+        "BonusAtributes": {
+            "Dexterity": 2,
+            "Charisma": 1
+        },
+        "Movement": 25,
+        "DarkVision": false,
+        "Languages": [
+            "Common",
+            "Halfling"
+        ],
+        "PassiveHabilities": [
+            {
+                "Name": "Halfling Nimbleness",
+                "Description": "You can move through the space of any creature that is of a size larger than yours."
+            },
+            {
+                "Name": "Naturally Stealthy",
+                "Description": "You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you."
+            }
+        ],
+        "Resistances": [],
+        "Imunities": [],
+        "KnownSkills": [],
+        "Feats": {}
+    },
+    {
+        "Name": "Half Elf",
+        "BonusAtributes": {
+            "Charisma": 2,
+            "playerchoice": 1,
+            "": 1
+        },
+        "Movement": 30,
+        "DarkVision": true,
+        "Languages": [
+            "Common",
+            "Elvish",
+            ""
+        ],
+        "PassiveHabilities": [],
+        "Resistances": [],
+        "Imunities": [
+            {
+                "Name": "Fey Ancestry",
+                "Effectname": "Sleep",
+                "Description": "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+            }
+        ],
+        "KnownSkills": [],
+        "Feats": {}
+    },
+    {
+        "Name": "Half Orc",
+        "BonusAtributes": {
+            "Strength": 2,
+            "Constitution": 1
+        },
+        "Movement": 30,
+        "DarkVision": true,
+        "Languages": [
+            "Common",
+            "Orc"
+        ],
+        "PassiveHabilities": [],
+        "Resistances": [],
+        "Imunities": [],
+        "KnownSkills": [
+            {
+                "Name": "Intimidation",
+                "Attribute": "Charisma",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            }
+        ],
+        "Feats": {}
+    },
+    {
+        "Name": "Human",
+        "BonusAtributes": {
+            "Strength": 1,
+            "Constitution": 1,
+            "Dexterity": 1,
+            "Intelligence": 1,
+            "Wisdom": 1,
+            "Charisma": 1
+        },
+        "Movement": 30,
+        "DarkVision": false,
+        "Languages": [
+            "Common",
+            ""
+        ],
+        "PassiveHabilities": [],
+        "Resistances": [],
+        "Imunities": [],
+        "KnownSkills": [],
+        "Feats": {}
+    },
+    {
+        "Name": "Variant Human",
+        "BonusAtributes": {
+            "1": 1,
+            "2": 1
+        },
+        "Movement": 30,
+        "DarkVision": false,
+        "Languages": [
+            "Common",
+            ""
+        ],
+        "PassiveHabilities": [],
+        "Resistances": [],
+        "Imunities": [],
+        "KnownSkills": [
+            {
+                "Name": "",
+                "Attribute": "",
+                "Proficient": true,
+                "SuperProficient": false,
+                "Totalbonus": 0
+            }
+        ],
+        "Feats": {}
+    },
+    {
+        "Name": "Tiefling",
+        "BonusAtributes": {
+            "Charisma": 2,
+            "Intelligence": 1
+        },
+        "Movement": 30,
+        "DarkVision": true,
+        "Languages": [
+            "Common",
+            "Infernal"
+        ],
+        "PassiveHabilities": [
+            {
+                "Name": "Hellish Resistance",
+                "Description": "You have resistance to fire damage."
+            }
+        ],
+        "Resistances": [
+            "Fire"
+        ],
+        "Imunities": [],
+        "KnownSkills": [],
+        "Feats": {}
+    }
+]

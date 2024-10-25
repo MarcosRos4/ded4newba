@@ -38,7 +38,7 @@ namespace ded4newba.src.Races.Gnome
             PassiveHabilities.Add(artificerlore);
             PassiveHabilities.Add(tinker);
 
-            Advantages.Add(ADVartificerlore, "Artificer's Lore");
+            Advantages.Add(ADVartificerlore);
         }
     }
 }

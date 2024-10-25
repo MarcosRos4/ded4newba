@@ -51,7 +51,7 @@ namespace ded4newba.src.Races.Elf
 
             PassiveHabilities.Add(trance);
 
-            Advantages.Add(ADVfeyancestry, "Charmed");
+            Advantages.Add(ADVfeyancestry);
 
             KnownSkills.Add(Perception);
         

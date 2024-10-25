@@ -8,19 +8,19 @@ namespace ded4newba.src.Races.Gnome
         readonly Advantage wisdom = new(
             "Gnome Cunning: Wisdom",
             "Wisdom",
-            "Magic",
+            "Wisdom Saves Against Magic",
             "You have advantage on all Wisdom saving throws against magic."
         );
         readonly Advantage inteligence = new(
             "Gnome Cunning: Intelligence",
             "Intelligence",
-            "Magic",
+            "Intelligence Saves Against Magic",
             "You have advantage on all Intelligence saving throws against magic."
         );
         readonly Advantage charisma = new(
             "Gnome Cunning: Charisma",
             "Charisma",
-            "Magic",
+            "Charisma Saves Against Magic",
             "You have advantage on all Charisma saving throws against magic."
         );
 
@@ -36,9 +36,9 @@ namespace ded4newba.src.Races.Gnome
             Languages.Add("Common");
             Languages.Add("Gnomish");
 
-            Advantages.Add(charisma, "Charisma Saves Against Magic");
-            Advantages.Add(wisdom, "Wisdom Saves Against Magic");
-            Advantages.Add(inteligence, "Intelligence Saves Against Magic");
+            Advantages.Add(charisma);
+            Advantages.Add(wisdom);
+            Advantages.Add(inteligence);
             
         }
     }
